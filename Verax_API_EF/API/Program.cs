@@ -17,6 +17,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<LibraryContext>();
 builder.Services.AddScoped<IArticleService, DbManagerArticle>();
+builder.Services.AddScoped<IUserService, DbManagerUser>();
+builder.Services.AddScoped<IFormulaireService, DbManagerFormulaire>();
 
 var app = builder.Build();
 

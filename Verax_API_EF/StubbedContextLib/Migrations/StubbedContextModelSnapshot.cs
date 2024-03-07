@@ -146,7 +146,7 @@ namespace StubbedContextLib.Migrations
 
                     b.HasIndex("UserEntityId");
 
-                    b.ToTable("FormEntity");
+                    b.ToTable("FormSet");
                 });
 
             modelBuilder.Entity("Entities.UserEntity", b =>

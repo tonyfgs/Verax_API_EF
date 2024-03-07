@@ -72,7 +72,7 @@ namespace StubbedContextLib.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FormEntity",
+                name: "FormSet",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
@@ -85,9 +85,9 @@ namespace StubbedContextLib.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FormEntity", x => x.Id);
+                    table.PrimaryKey("PK_FormSet", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FormEntity_UserSet_UserEntityId",
+                        name: "FK_FormSet_UserSet_UserEntityId",
                         column: x => x.UserEntityId,
                         principalTable: "UserSet",
                         principalColumn: "Id",
@@ -132,8 +132,8 @@ namespace StubbedContextLib.Migrations
                 column: "UserEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FormEntity_UserEntityId",
-                table: "FormEntity",
+                name: "IX_FormSet_UserEntityId",
+                table: "FormSet",
                 column: "UserEntityId");
         }
 
@@ -144,7 +144,7 @@ namespace StubbedContextLib.Migrations
                 name: "ArticleUserEntity");
 
             migrationBuilder.DropTable(
-                name: "FormEntity");
+                name: "FormSet");
 
             migrationBuilder.DropTable(
                 name: "ArticleSet");

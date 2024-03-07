@@ -11,7 +11,7 @@ public class DbManagerArticle : IArticleService
 
     public DbManagerArticle(LibraryContext context)
     {
-        _context = context;
+        _context = new LibraryContext();
     }
 
     public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
@@ -34,6 +34,7 @@ public class DbManagerArticle : IArticleService
     public async Task<Article?> DeleteArticle(long id)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
+        Console.WriteLine(entity);
         if (entity == null) return null;
         _context.ArticleSet.Remove(entity);
         await _context.SaveChangesAsync();
@@ -61,6 +62,7 @@ public class DbManagerArticle : IArticleService
 
     public async Task<IEnumerable<Article?>> GetAllArticles()
     {
+        Console.WriteLine("GetAllArticles");
         return await Task.FromResult(_context.ArticleSet.Select(a => a.ToModel()).AsEnumerable());
     }
 }

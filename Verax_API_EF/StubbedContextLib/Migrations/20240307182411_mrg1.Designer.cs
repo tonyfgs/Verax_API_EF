@@ -10,7 +10,7 @@ using StubbedContextLib;
 namespace StubbedContextLib.Migrations
 {
     [DbContext(typeof(StubbedContext))]
-    [Migration("20240305073325_mrg1")]
+    [Migration("20240307182411_mrg1")]
     partial class mrg1
     {
         /// <inheritdoc />
@@ -149,7 +149,7 @@ namespace StubbedContextLib.Migrations
 
                     b.HasIndex("UserEntityId");
 
-                    b.ToTable("FormEntity");
+                    b.ToTable("FormSet");
                 });
 
             modelBuilder.Entity("Entities.UserEntity", b =>

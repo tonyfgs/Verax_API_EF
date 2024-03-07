@@ -5,11 +5,22 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>DbDataManager</RootNamespace>
+        <StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\API_Services\API_Services.csproj" />
       <ProjectReference Include="..\DbContextLib\DbContextLib.csproj" />
+      <ProjectReference Include="..\StubbedContextLib\StubbedContextLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
     </ItemGroup>
 
 </Project>
