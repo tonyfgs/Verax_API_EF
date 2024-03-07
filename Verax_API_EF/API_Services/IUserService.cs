@@ -1,4 +1,4 @@
-﻿using Web_API.Model;
+﻿using Model;
 
 namespace API_Services
 {
@@ -10,9 +10,9 @@ namespace API_Services
         Task<bool> Delete(string pseudo);
 
 
-        Task<User> GetByPseudo(string pseudo);
+        Task<User?> GetByPseudo(string pseudo);
 
-        Task<List<UserDTO>> GetAll();
+        Task<IEnumerable<User?>> GetAll();
 
 
 

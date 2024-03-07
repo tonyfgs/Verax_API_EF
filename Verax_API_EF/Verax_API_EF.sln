@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContextLib", "DbContextLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubbedContextLib", "StubbedContextLib\StubbedContextLib.csproj", "{F1B4BCE5-8DE7-4EFB-8BC1-D7E04EA75302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_API", "Web_API\Web_API.csproj", "{852E0658-1A97-482A-84F3-0EF08E34D7B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_DbDataManager", "API_DbDataManager\API_DbDataManager.csproj", "{FBA0CF18-7488-4088-A7C5-5D2071D19CCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Services", "API_Services\API_Services.csproj", "{4FB7D286-B583-44BC-BB79-4AE3058AFEDE}"
@@ -19,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Mapping", "API_Mapping\API_Mapping.csproj", "{BECFAD2C-E442-4300-8121-5AE6610B92DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{96FDB5DE-6707-4856-94CD-EFAF0C7CEB4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6AACD337-70A0-429B-979C-1B1E004BF2E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +42,6 @@ Global
 		{F1B4BCE5-8DE7-4EFB-8BC1-D7E04EA75302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1B4BCE5-8DE7-4EFB-8BC1-D7E04EA75302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1B4BCE5-8DE7-4EFB-8BC1-D7E04EA75302}.Release|Any CPU.Build.0 = Release|Any CPU
-		{852E0658-1A97-482A-84F3-0EF08E34D7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{852E0658-1A97-482A-84F3-0EF08E34D7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{852E0658-1A97-482A-84F3-0EF08E34D7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{852E0658-1A97-482A-84F3-0EF08E34D7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FBA0CF18-7488-4088-A7C5-5D2071D19CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FBA0CF18-7488-4088-A7C5-5D2071D19CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA0CF18-7488-4088-A7C5-5D2071D19CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,5 +62,9 @@ Global
 		{96FDB5DE-6707-4856-94CD-EFAF0C7CEB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FDB5DE-6707-4856-94CD-EFAF0C7CEB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96FDB5DE-6707-4856-94CD-EFAF0C7CEB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AACD337-70A0-429B-979C-1B1E004BF2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AACD337-70A0-429B-979C-1B1E004BF2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AACD337-70A0-429B-979C-1B1E004BF2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AACD337-70A0-429B-979C-1B1E004BF2E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

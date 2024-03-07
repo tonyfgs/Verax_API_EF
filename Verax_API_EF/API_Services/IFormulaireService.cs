@@ -1,16 +1,16 @@
-using Web_API.Model;
+using Model;
 
 namespace API_Services;
 
 public interface IFormulaireService
 {
 
-    Task<List<FormulaireDTO>> GetAllForm();
+    Task<IEnumerable<Formulaire?>> GetAllForm();
 
-    Task<FormulaireDTO?> GetById(long id);
+    Task<Formulaire?> GetById(long id);
     
     
-    Task<FormulaireDTO> CreateForm(Formulaire formulaire);
+    Task<Formulaire?> CreateForm(Formulaire formulaire);
 
     Task<bool> DeleteForm(long id);
 

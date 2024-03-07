@@ -9,7 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\API_Services\API_Services.csproj" />
-      <ProjectReference Include="..\Web_API\Web_API.csproj" />
+      <ProjectReference Include="..\DbContextLib\DbContextLib.csproj" />
     </ItemGroup>
 
 </Project>

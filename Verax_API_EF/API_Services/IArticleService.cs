@@ -1,19 +1,19 @@
-﻿using Entities;
-using Web_API.Model;
+﻿using Model;
 
 namespace API_Services
 {
     public interface IArticleService
     {
-        Task<ArticleDTO> CreateArticle(ArticleDTO a);
+        Task<Article?> CreateArticle(long id, string title, string description, string author, string date,
+            int lectureTime);
 
-        Task<ArticleDTO?> DeleteArticle(long id);
+        Task<Article?> DeleteArticle(long id);
 
-         Task<bool> UpdateArticle(long id, ArticleDTO a);
+         Task<bool> UpdateArticle(long id, Article? a);
 
-        Task<ArticleDTO> GetArticleById(int id);
+        Task<Article?> GetArticleById(int id);
 
-        Task<List<ArticleDTO>> GetAllArticles();
+        Task<IEnumerable<Article?>> GetAllArticles();
         
     }
 }

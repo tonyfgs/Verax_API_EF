@@ -13,8 +13,11 @@ public class LibraryContext : DbContext
         : base(options)
     { }
     
+    
+    
     public DbSet<ArticleEntity> ArticleSet { get; set; }
     public DbSet<UserEntity> UserSet { get; set; }
+    public DbSet<FormEntity> FormSet { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
