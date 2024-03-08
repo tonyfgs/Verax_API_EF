@@ -5,8 +5,16 @@ using Model;
 
 namespace DbDataManager;
 
-public class DbManagerFormulaire(LibraryContext _context) : IFormulaireService
+public class DbManagerFormulaire : IFormulaireService
 {
+    
+    private readonly LibraryContext _context;
+
+    public DbManagerFormulaire(LibraryContext context)
+    {
+        _context = context;
+    }
+
     public async Task<IEnumerable<Formulaire?>> GetAllForm()
     {
         return await Task.FromResult(_context.FormSet.Select(f => f.ToModel()).AsEnumerable());

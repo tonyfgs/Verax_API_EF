@@ -2,6 +2,7 @@ using API_Services;
 using DbContextLib;
 using Entities;
 using Model;
+using ArticleEntity = Model.ArticleEntity;
 
 namespace DbDataManager;
 
@@ -11,12 +12,13 @@ public class DbManagerArticle : IArticleService
 
     public DbManagerArticle(LibraryContext context)
     {
-        _context = new LibraryContext();
+        _context = context;
     }
+    
 
-    public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+    public async Task<ArticleEntity?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
     {
-        var entity = new ArticleEntity()
+        var entity = new Entities.ArticleEntity()
         {
             Id = id,
             Title = title,
@@ -31,7 +33,7 @@ public class DbManagerArticle : IArticleService
         return entity.ToModel();
     }
     
-    public async Task<Article?> DeleteArticle(long id)
+    public async Task<ArticleEntity?> DeleteArticle(long id)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         Console.WriteLine(entity);
@@ -41,7 +43,7 @@ public class DbManagerArticle : IArticleService
         return entity.ToModel();
     }
 
-    public async Task<bool> UpdateArticle(long id, Article? a)
+    public async Task<bool> UpdateArticle(long id, ArticleEntity? a)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         if (entity == null) return false;
@@ -54,15 +56,16 @@ public class DbManagerArticle : IArticleService
         return true;
     }
 
-    public Task<Article?> GetArticleById(int id)
+    public Task<ArticleEntity?> GetArticleById(int id)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         return Task.FromResult(entity.ToModel());
     }
 
-    public async Task<IEnumerable<Article?>> GetAllArticles()
+    public async Task<IEnumerable<ArticleEntity?>> GetAllArticles()
     {
         Console.WriteLine("GetAllArticles");
         return await Task.FromResult(_context.ArticleSet.Select(a => a.ToModel()).AsEnumerable());
+        
     }
 }

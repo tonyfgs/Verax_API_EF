@@ -29,7 +29,7 @@ namespace API.Controllers
         }
         
         [HttpGet("/article/{id}")]
-        public async Task<Article?> GetArticleById(int id)
+        public async Task<ArticleEntity?> GetArticleById(int id)
         {
             var result =  await _articleService.GetArticleById(id);
             if (result == null)
@@ -42,19 +42,19 @@ namespace API.Controllers
         
         
         [HttpPost("/article")]
-        public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+        public async Task<ArticleEntity?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
         {
             return await _articleService.CreateArticle(id, title, description, author, date, lectureTime);
         }
 
         [HttpDelete("/article/{id}")]
-        public async Task<Article?> DeleteArticle(long id)
+        public async Task<ArticleEntity?> DeleteArticle(long id)
         {
             return await _articleService.DeleteArticle(id);
         }
     
         [HttpPut("/article/{id}")]
-        public async Task<bool> UpdateArticle(long id, Article? a)
+        public async Task<bool> UpdateArticle(long id, ArticleEntity? a)
         {
             return await _articleService.UpdateArticle(id, a); 
         }

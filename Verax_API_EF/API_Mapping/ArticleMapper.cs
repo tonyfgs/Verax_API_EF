@@ -5,7 +5,7 @@ namespace API_Mapping;
 
 public static class ArticleMapper
 {
-    public static ArticleDTO ToDTO(this Article a) => new()
+    public static ArticleDTO ToDTO(this ArticleEntity a) => new()
     {
         Id = a.Id,
         Title = a.Title,
@@ -15,7 +15,7 @@ public static class ArticleMapper
         Author = a.Author
     };
     
-    public static Article ToModel(this ArticleDTO a) => new()
+    public static ArticleEntity ToModel(this ArticleDTO a) => new()
     {
         Id = a.Id,
         Title = a.Title,

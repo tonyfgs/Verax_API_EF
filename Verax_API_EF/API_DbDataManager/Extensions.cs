@@ -1,19 +1,20 @@
 using Entities;
 using Model;
+using ArticleEntity = Model.ArticleEntity;
 
 namespace DbDataManager;
 
 public static class Extensions
 {
-    public static ArticleEntity ToEntity(this Article article)
-        => new ArticleEntity
+    public static Entities.ArticleEntity ToEntity(this ArticleEntity articleEntity)
+        => new Entities.ArticleEntity
         {
-            Id = article.Id, Author = article.Author, Description = article.Description, Title = article.Title,
-            DatePublished = article.DatePublished, LectureTime = article.LectureTime 
+            Id = articleEntity.Id, Author = articleEntity.Author, Description = articleEntity.Description, Title = articleEntity.Title,
+            DatePublished = articleEntity.DatePublished, LectureTime = articleEntity.LectureTime 
         };
     
-    public static Article ToModel(this ArticleEntity article)
-        => new Article
+    public static ArticleEntity ToModel(this Entities.ArticleEntity article)
+        => new ArticleEntity
         {
             Id = article.Id, Author = article.Author, Description = article.Description, Title = article.Title,
             DatePublished = article.DatePublished, LectureTime = article.LectureTime

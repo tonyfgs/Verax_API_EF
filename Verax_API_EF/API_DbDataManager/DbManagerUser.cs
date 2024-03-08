@@ -5,8 +5,16 @@ using Model;
 
 namespace DbDataManager;
 
-public class DbManagerUser(LibraryContext _context): IUserService
+public class DbManagerUser: IUserService
 {
+    
+    private readonly LibraryContext _context;
+
+    public DbManagerUser(LibraryContext context)
+    {
+        _context = context;
+    }
+    
     public async Task<bool> Create(User user)
     {
         var entity = new UserEntity()

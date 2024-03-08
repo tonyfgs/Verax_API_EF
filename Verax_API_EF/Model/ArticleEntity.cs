@@ -1,6 +1,6 @@
 namespace Model;
 
-public class Article
+public class ArticleEntity
 {
     public long Id { get; set; }
     public string Title { get; set; } = string.Empty;
