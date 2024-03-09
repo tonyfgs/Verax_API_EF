@@ -1,18 +1,17 @@
 using Entities;
 using Model;
-using ArticleEntity = Model.ArticleEntity;
 
 namespace StubbedContextLib;
 
 public class StubTest
 {
-    private List<ArticleEntity> _article;
+    private List<Article> _article;
     
-    public List<ArticleEntity> StubArticle()
+    public List<Article> StubArticle()
     {
-        _article = new List<ArticleEntity>
+        _article = new List<Article>
         {
-            new ArticleEntity
+            new Article
             {
                 Id = 1,
                 Title = "Test",

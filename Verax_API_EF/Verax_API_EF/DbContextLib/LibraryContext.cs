@@ -36,6 +36,16 @@ public class LibraryContext : DbContext
             .WithMany(a => a.Articles)
             .UsingEntity<ArticleUserEntity>();
         
+        modelBuilder.Entity<UserEntity>()
+            .HasMany(u => u.Forms)
+            .WithOne(f => f.User)
+            .HasForeignKey(f => f.UserEntityId);
+        
+        modelBuilder.Entity<FormEntity>()
+            .HasOne(f => f.User)
+            .WithMany(u => u.Forms)
+            .HasForeignKey(f => f.UserEntityId);
+        
         modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
             {
@@ -108,6 +118,33 @@ public class LibraryContext : DbContext
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
+                UserEntityId = 3
+            }
+        );
+        
+        modelBuilder.Entity<FormEntity>().HasData(
+            new FormEntity
+            {
+                Id = 1, 
+                Pseudo= "Form 1",
+                DatePublication = "Form 1 Description",
+                Link = "hhtp://form1.com",
+                UserEntityId = 1
+            },
+            new FormEntity
+            {
+                Id = 2,
+                Pseudo= "Form 2",
+                DatePublication = "Form 2 Description",
+                Link = "hhtp://form2.com",
+                UserEntityId = 2
+            },
+            new FormEntity
+            {
+                Id = 3,
+                Pseudo= "Form 3",
+                DatePublication = "Form 3 Description",
+                Link = "hhtp://form3.com",
                 UserEntityId = 3
             }
         );

@@ -4,16 +4,16 @@ namespace API_Services
 {
     public interface IArticleService
     {
-        Task<ArticleEntity?> CreateArticle(long id, string title, string description, string author, string date,
+        Task<Article?> CreateArticle(long id, string title, string description, string author, string date,
             int lectureTime);
 
-        Task<ArticleEntity?> DeleteArticle(long id);
+        Task<Article?> DeleteArticle(long id);
 
-         Task<bool> UpdateArticle(long id, ArticleEntity? a);
+         Task<bool> UpdateArticle(long id, Article? a);
 
-        Task<ArticleEntity?> GetArticleById(int id);
+        Task<Article?> GetArticleById(int id);
 
-        Task<IEnumerable<ArticleEntity?>> GetAllArticles();
+        Task<IEnumerable<Article?>> GetAllArticles();
         
     }
 }

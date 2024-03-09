@@ -2,7 +2,6 @@ using API_Services;
 using DbContextLib;
 using Entities;
 using Model;
-using ArticleEntity = Model.ArticleEntity;
 
 namespace DbDataManager;
 
@@ -17,7 +16,7 @@ public class DbManagerArticle : IArticleService
     }
     
 
-    public async Task<ArticleEntity?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+    public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
     {
         var entity = new Entities.ArticleEntity()
         {
@@ -34,7 +33,7 @@ public class DbManagerArticle : IArticleService
         return entity.ToModel();
     }
     
-    public async Task<ArticleEntity?> DeleteArticle(long id)
+    public async Task<Article?> DeleteArticle(long id)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         Console.WriteLine(entity);
@@ -44,7 +43,7 @@ public class DbManagerArticle : IArticleService
         return entity.ToModel();
     }
 
-    public async Task<bool> UpdateArticle(long id, ArticleEntity? a)
+    public async Task<bool> UpdateArticle(long id, Article? a)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         if (entity == null) return false;
@@ -57,13 +56,13 @@ public class DbManagerArticle : IArticleService
         return true;
     }
 
-    public Task<ArticleEntity?> GetArticleById(int id)
+    public Task<Article?> GetArticleById(int id)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
         return Task.FromResult(entity.ToModel());
     }
 
-    public async Task<IEnumerable<ArticleEntity?>> GetAllArticles()
+    public async Task<IEnumerable<Article?>> GetAllArticles()
     {
         return await Task.FromResult(_context.ArticleSet.Select(a => a.ToModel()).AsEnumerable());
     }
