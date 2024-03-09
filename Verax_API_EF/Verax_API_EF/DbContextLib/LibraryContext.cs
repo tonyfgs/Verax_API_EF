@@ -36,7 +36,8 @@ public class LibraryContext : DbContext
             .WithMany(a => a.Articles)
             .UsingEntity<ArticleUserEntity>();
         
-         modelBuilder.Entity<ArticleEntity>().HasData(
+        
+        modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
             {
                 Id = 1,

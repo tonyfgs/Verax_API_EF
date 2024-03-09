@@ -18,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryContext>(options =>
 {
     options.UseSqlite("Data Source=Entity_FrameWork.Article.db");
+    
 });
 builder.Services.AddScoped<IArticleService, DbManagerArticle>();
 builder.Services.AddScoped<IUserService, DbManagerUser>();
@@ -33,6 +34,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
+
 
 app.Run();
+
+
+using var scoped = app.Services.CreateScope();
+var libraryContext = scoped.ServiceProvider.GetService<LibraryContext>();
+libraryContext.Database.EnsureCreated();
 

@@ -6,6 +6,7 @@ using ArticleEntity = Model.ArticleEntity;
 
 namespace DbDataManager;
 
+
 public class DbManagerArticle : IArticleService
 {
     private readonly LibraryContext _context;
@@ -64,8 +65,6 @@ public class DbManagerArticle : IArticleService
 
     public async Task<IEnumerable<ArticleEntity?>> GetAllArticles()
     {
-        Console.WriteLine("GetAllArticles");
         return await Task.FromResult(_context.ArticleSet.Select(a => a.ToModel()).AsEnumerable());
-        
     }
 }
