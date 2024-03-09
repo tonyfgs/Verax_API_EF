@@ -1,3 +1,4 @@
+using API_Mapping;
 using API_Services;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -18,9 +19,9 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetAllArticles()
+        public async Task<IActionResult> GetAllArticles([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] ArticleOrderCriteria orderCriterium = ArticleOrderCriteria.None)
         {
-            var result = await _articleService.GetAllArticles();
+            var result = (await _articleService.GetAllArticles(index, count, orderCriterium)).Select(a => a.ToDTO());
             if (result == null)
             {
                 return NotFound();
@@ -29,9 +30,9 @@ namespace API.Controllers
         }
         
         [HttpGet("/article/{id}")]
-        public async Task<Article?> GetArticleById(int id)
+        public async Task<Article?> GetArticleById(int id, [FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] ArticleOrderCriteria orderCriterium = ArticleOrderCriteria.None)
         {
-            var result =  await _articleService.GetArticleById(id);
+            var result =  await _articleService.GetArticleById(id, index, count, orderCriterium);
             if (result == null)
             {
                 return null;

@@ -14,8 +14,68 @@ public class DbManagerArticle : IArticleService
     {
         _context = context;
     }
+    public async Task<IEnumerable<Article?>> GetAllArticles(int index, int count, ArticleOrderCriteria orderCriterium)
+    {
+        List<Article> articles = new List<Article>();
+        
+        switch (orderCriterium)
+        {
+            case ArticleOrderCriteria.None:
+                articles = _context.ArticleSet.Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByLectureTime:
+                articles = _context.ArticleSet.OrderBy(a => a.LectureTime).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByTitle:
+                articles = _context.ArticleSet.OrderBy(a => a.Title).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByAuthor:
+                articles = _context.ArticleSet.OrderBy(a => a.Author).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByDatePublished:
+                articles = _context.ArticleSet.OrderBy(a => a.DatePublished).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByDescription:
+                articles = _context.ArticleSet.OrderBy(a => a.Description).Select(a => a.ToModel()).ToList();
+                break;
+            default:
+                articles = _context.ArticleSet.Select(a => a.ToModel()).ToList();
+                break;
+        }
+        return await Task.FromResult(articles.AsEnumerable());
+    }
     
+    public Task<Article?> GetArticleById(int id, int index, int count, ArticleOrderCriteria orderCriterium)
+    {
+        List<Article> articles = new List<Article>();
+        switch (orderCriterium)
+        {
+            case ArticleOrderCriteria.None:
+                articles = _context.ArticleSet.Where(a => a.Id == id).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByLectureTime:
+                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.LectureTime).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByTitle:
+                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Title).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByAuthor:
+                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Author).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByDatePublished:
+                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.DatePublished).Select(a => a.ToModel()).ToList();
+                break;
+            case ArticleOrderCriteria.ByDescription:
+                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Description).Select(a => a.ToModel()).ToList();
+                break;
+            default:
+                articles = _context.ArticleSet.Where(a => a.Id == id).Select(a => a.ToModel()).ToList();
+                break;
+        }
+        return Task.FromResult(articles.FirstOrDefault());
+    }
 
+    
     public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
     {
         var entity = new Entities.ArticleEntity()
@@ -56,14 +116,5 @@ public class DbManagerArticle : IArticleService
         return true;
     }
 
-    public Task<Article?> GetArticleById(int id)
-    {
-        var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
-        return Task.FromResult(entity.ToModel());
-    }
-
-    public async Task<IEnumerable<Article?>> GetAllArticles()
-    {
-        return await Task.FromResult(_context.ArticleSet.Select(a => a.ToModel()).AsEnumerable());
-    }
+    
 }
