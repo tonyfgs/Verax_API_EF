@@ -15,9 +15,31 @@ public class DbManagerFormulaire : IFormulaireService
         _context = context;
     }
 
-    public async Task<IEnumerable<Formulaire?>> GetAllForm()
+    public async Task<IEnumerable<Formulaire?>> GetAllForm(int index, int count, FormOrderCriteria orderCriteria)
     {
-        return await Task.FromResult(_context.FormSet.Select(f => f.ToModel()).AsEnumerable());
+        List<Formulaire> formulaireList = new List<Formulaire>();
+        switch (orderCriteria)
+        {
+            case FormOrderCriteria.None:
+                formulaireList = _context.FormSet.Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByTheme:
+                formulaireList = _context.FormSet.OrderBy(f => f.Theme).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByLien:
+                formulaireList = _context.FormSet.OrderBy(f => f.Link).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByDate:
+                formulaireList = _context.FormSet.OrderBy(f => f.DatePublication).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByPseudo:
+                formulaireList = _context.FormSet.OrderBy(f => f.Pseudo).Select(f => f.ToModel()).ToList();
+                break;
+            default:
+                formulaireList = _context.FormSet.Select(f => f.ToModel()).ToList();
+                break;
+        }
+        return await Task.FromResult(formulaireList.AsEnumerable());
     }
 
     public async Task<Formulaire?> GetById(long id)

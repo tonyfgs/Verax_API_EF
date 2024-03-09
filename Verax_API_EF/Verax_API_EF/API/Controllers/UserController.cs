@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using API_Services;
 using Model;
+using API_Mapping;
 
 
 namespace API.Controllers
@@ -18,34 +19,45 @@ namespace API.Controllers
         }
         
         [HttpPost("/user")]
-        public Task<bool> Create(User user)
+        public async Task<bool> Create(User user)
         {
-            throw new NotImplementedException();
+            return await _us.Create(user);
         }
         
         
         [HttpPut("/user/{pseudo}")]
-        public Task<bool> Update(User user)
+        public async Task<bool> Update(User user)
         {
-            throw new NotImplementedException();
+            return await _us.Update(user);
         }
         
         [HttpDelete("/user/{pseudo}")]
-        public Task<bool> Delete(string pseudo)
+        public async Task<bool> Delete(string pseudo)
         {
-            throw new NotImplementedException();
+            return await _us.Delete(pseudo);
         }
         
         [HttpGet("/user/{pseudo}")]
-        public Task<User?> GetByPseudo(string pseudo)
+        public async Task<IActionResult> GetByPseudo(string pseudo)
         {
-            throw new NotImplementedException();
+            var result = (await _us.GetByPseudo(pseudo)).ToDTO();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
         
         [HttpGet("/users")]
-        public Task<IEnumerable<User?>> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] UserOrderCriteria orderCriteria = UserOrderCriteria.None)
         {
-            throw new NotImplementedException();
+            var result = (await _us.GetAll(index, count, orderCriteria)).Select(u => u.ToDTO());
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+
         }
     }
 }

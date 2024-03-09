@@ -12,7 +12,7 @@ namespace API_Services
 
         Task<User?> GetByPseudo(string pseudo);
 
-        Task<IEnumerable<User?>> GetAll();
+        Task<IEnumerable<User?>> GetAll(int index, int count, UserOrderCriteria orderCriteria);
 
 
 

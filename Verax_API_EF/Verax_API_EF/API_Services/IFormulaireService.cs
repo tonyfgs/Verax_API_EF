@@ -5,7 +5,7 @@ namespace API_Services;
 public interface IFormulaireService
 {
 
-    Task<IEnumerable<Formulaire?>> GetAllForm();
+    Task<IEnumerable<Formulaire?>> GetAllForm(int index, int count, FormOrderCriteria orderCriteria);
 
     Task<Formulaire?> GetById(long id);
     

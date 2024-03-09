@@ -60,8 +60,26 @@ public class DbManagerUser: IUserService
         return await Task.FromResult(entity.ToModel());
     }
 
-    public async Task<IEnumerable<User?>> GetAll()
+    public async Task<IEnumerable<User?>> GetAll(int index, int count, UserOrderCriteria orderCriteria)
     {
-        return await Task.FromResult(_context.UserSet.Select(u => u.ToModel()).AsEnumerable());
+        List<User> users = new List<User>();
+        switch(orderCriteria)
+        {
+            case UserOrderCriteria.None:
+                users = _context.UserSet.Select(u => u.ToModel()).ToList();
+                break;
+            case UserOrderCriteria.ByFirstName:
+                users = _context.UserSet.OrderBy(u => u.Prenom).Select(u => u.ToModel()).ToList();
+                break;
+            case UserOrderCriteria.ByLastName:
+                users = _context.UserSet.OrderBy(u => u.Nom).Select(u => u.ToModel()).ToList();
+                break;
+            default:
+                users = _context.UserSet.Select(u => u.ToModel()).ToList();
+                break;
+
+        }
+        return await Task.FromResult(users.AsEnumerable());
+
     }
 }
