@@ -5,7 +5,7 @@ namespace API_Services
     public interface IUserService
     {
         Task<bool> Create(User user);
-        Task<bool> Update(User user);
+        Task<bool> Update(User user, string pseudo);
 
         Task<bool> Delete(string pseudo);
 

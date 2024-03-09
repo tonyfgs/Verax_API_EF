@@ -31,9 +31,9 @@ public class DbManagerUser: IUserService
         return true;
     }
 
-    public async Task<bool> Update(User user)
+    public async Task<bool> Update(User user, string pseudo)
     {
-        var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == user.Pseudo);
+        var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == pseudo);
         if (entity == null) return false;
         entity.Mdp = user.Mdp;
         entity.Mail = user.Mail;

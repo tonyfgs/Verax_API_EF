@@ -26,9 +26,9 @@ namespace API.Controllers
         
         
         [HttpPut("/user/{pseudo}")]
-        public async Task<bool> Update(User user)
+        public async Task<bool> Update(User user, string pseudo)
         {
-            return await _us.Update(user);
+            return await _us.Update(user,pseudo);
         }
         
         [HttpDelete("/user/{pseudo}")]
