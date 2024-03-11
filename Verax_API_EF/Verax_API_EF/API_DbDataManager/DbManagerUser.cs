@@ -15,6 +15,35 @@ public class DbManagerUser: IUserService
         _context = context;
     }
     
+    public async Task<IEnumerable<User?>> GetAll(int index, int count, UserOrderCriteria orderCriteria)
+    {
+        List<User> users = new List<User>();
+        switch(orderCriteria)
+        {
+            case UserOrderCriteria.None:
+                users = _context.UserSet.Skip(index * count).Select(u => u.ToModel()).ToList();
+                break;
+            case UserOrderCriteria.ByFirstName:
+                users = _context.UserSet.Skip(index * count).OrderBy(u => u.Prenom).Select(u => u.ToModel()).ToList();
+                break;
+            case UserOrderCriteria.ByLastName:
+                users = _context.UserSet.Skip(index * count).OrderBy(u => u.Nom).Select(u => u.ToModel()).ToList();
+                break;
+            default:
+                users = _context.UserSet.Skip(index * count).Select(u => u.ToModel()).ToList();
+                break;
+
+        }
+        return await Task.FromResult(users.AsEnumerable());
+
+    }
+    
+    public async Task<User?> GetByPseudo(string pseudo)
+    {
+        var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == pseudo);
+        return await Task.FromResult(entity.ToModel());
+    }
+    
     public async Task<bool> Create(User user)
     {
         var entity = new UserEntity()
@@ -51,35 +80,10 @@ public class DbManagerUser: IUserService
         _context.UserSet.Remove(entity);
         await _context.SaveChangesAsync();
         return await Task.FromResult(true);
-        
     }
-
-    public async Task<User?> GetByPseudo(string pseudo)
-    {
-        var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == pseudo);
-        return await Task.FromResult(entity.ToModel());
-    }
-
-    public async Task<IEnumerable<User?>> GetAll(int index, int count, UserOrderCriteria orderCriteria)
-    {
-        List<User> users = new List<User>();
-        switch(orderCriteria)
-        {
-            case UserOrderCriteria.None:
-                users = _context.UserSet.Select(u => u.ToModel()).ToList();
-                break;
-            case UserOrderCriteria.ByFirstName:
-                users = _context.UserSet.OrderBy(u => u.Prenom).Select(u => u.ToModel()).ToList();
-                break;
-            case UserOrderCriteria.ByLastName:
-                users = _context.UserSet.OrderBy(u => u.Nom).Select(u => u.ToModel()).ToList();
-                break;
-            default:
-                users = _context.UserSet.Select(u => u.ToModel()).ToList();
-                break;
-
-        }
-        return await Task.FromResult(users.AsEnumerable());
-
-    }
+    
+    
+    
+    
+   
 }

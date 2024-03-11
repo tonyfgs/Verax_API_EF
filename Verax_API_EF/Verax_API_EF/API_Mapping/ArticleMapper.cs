@@ -5,7 +5,7 @@ namespace API_Mapping;
 
 public static class ArticleMapper
 {
-    public static ArticleDTO ToDTO(this Article a) => new()
+    public static ArticleDTO ToDTO(this Article? a) => new()
     {
         Id = a.Id,
         Title = a.Title,

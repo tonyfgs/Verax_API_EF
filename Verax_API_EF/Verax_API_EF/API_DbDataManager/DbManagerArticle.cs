@@ -45,34 +45,11 @@ public class DbManagerArticle : IArticleService
         return await Task.FromResult(articles.AsEnumerable());
     }
     
-    public Task<Article?> GetArticleById(int id, int index, int count, ArticleOrderCriteria orderCriterium)
+    public Task<Article?> GetArticleById(int id)
     {
-        List<Article> articles = new List<Article>();
-        switch (orderCriterium)
-        {
-            case ArticleOrderCriteria.None:
-                articles = _context.ArticleSet.Where(a => a.Id == id).Select(a => a.ToModel()).ToList();
-                break;
-            case ArticleOrderCriteria.ByLectureTime:
-                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.LectureTime).Select(a => a.ToModel()).ToList();
-                break;
-            case ArticleOrderCriteria.ByTitle:
-                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Title).Select(a => a.ToModel()).ToList();
-                break;
-            case ArticleOrderCriteria.ByAuthor:
-                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Author).Select(a => a.ToModel()).ToList();
-                break;
-            case ArticleOrderCriteria.ByDatePublished:
-                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.DatePublished).Select(a => a.ToModel()).ToList();
-                break;
-            case ArticleOrderCriteria.ByDescription:
-                articles = _context.ArticleSet.Where(a => a.Id == id).OrderBy(a => a.Description).Select(a => a.ToModel()).ToList();
-                break;
-            default:
-                articles = _context.ArticleSet.Where(a => a.Id == id).Select(a => a.ToModel()).ToList();
-                break;
-        }
-        return Task.FromResult(articles.FirstOrDefault());
+        var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
+        if (entity == null) return Task.FromResult<Article?>(null);
+        return Task.FromResult(entity.ToModel());
     }
 
     
@@ -80,6 +57,7 @@ public class DbManagerArticle : IArticleService
     {
         var entity = new Entities.ArticleEntity()
         {
+            Id = article.Id,
             Title = article.Title,
             Description = article.Description,
             Author = article.Author,

@@ -7,7 +7,7 @@ namespace API_Services
         
         Task<IEnumerable<Article?>> GetAllArticles(int index, int count, ArticleOrderCriteria orderCriterium);
         
-        Task<Article?> GetArticleById(int id, int index, int count, ArticleOrderCriteria orderCriterium);
+        Task<Article?> GetArticleById(int id);
 
 
         Task<Article?> CreateArticle(Article article);

@@ -21,22 +21,22 @@ public class DbManagerFormulaire : IFormulaireService
         switch (orderCriteria)
         {
             case FormOrderCriteria.None:
-                formulaireList = _context.FormSet.Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).Select(f => f.ToModel()).ToList();
                 break;
             case FormOrderCriteria.ByTheme:
-                formulaireList = _context.FormSet.OrderBy(f => f.Theme).Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.Theme).Select(f => f.ToModel()).ToList();
                 break;
             case FormOrderCriteria.ByLien:
-                formulaireList = _context.FormSet.OrderBy(f => f.Link).Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.Link).Select(f => f.ToModel()).ToList();
                 break;
             case FormOrderCriteria.ByDate:
-                formulaireList = _context.FormSet.OrderBy(f => f.DatePublication).Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.DatePublication).Select(f => f.ToModel()).ToList();
                 break;
             case FormOrderCriteria.ByPseudo:
-                formulaireList = _context.FormSet.OrderBy(f => f.UserEntityPseudo).Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.UserEntityPseudo).Select(f => f.ToModel()).ToList();
                 break;
             default:
-                formulaireList = _context.FormSet.Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.Skip(index * count).Select(f => f.ToModel()).ToList();
                 break;
         }
         return await Task.FromResult(formulaireList.AsEnumerable());

@@ -13,50 +13,116 @@ namespace API.Controllers
     public class FormulaireController : ControllerBase
     {
         private readonly IFormulaireService _form;
+        private readonly ILogger<FormulaireController> _logger;
 
-        public FormulaireController(IFormulaireService iform)
+        public FormulaireController(IFormulaireService iform, ILogger<FormulaireController> logger)
         {
             this._form = iform;
+            this._logger = logger;
         }
 
-        [HttpGet("/forms")]
+        [HttpGet("/formulaires")]
         public async Task<IActionResult> GetAllForm([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] FormOrderCriteria orderCriteria = FormOrderCriteria.None)
         {
-            var result = (await _form.GetAllForm(index, count, orderCriteria)).Select(f => f.ToDTO());
-            if (result == null)
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllForm), index, count, orderCriteria);
+            try
             {
-                return NotFound();
+                var result = (await _form.GetAllForm(index, count, orderCriteria)).Select(f => f.ToDTO());
+                if (result == null)
+                {
+                    return NotFound($"No form found");
+                }
+                return Ok(result);
             }
-            return Ok(result);
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
+            
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("/formulaire/{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            var result = (await _form.GetById(id)).ToDTO();
-            if (result == null)
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetById), id);
+            try
             {
-                return NotFound();
+                var result = (await _form.GetById(id)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"form ID {id} not found");
+                }
+                return Ok(result);
             }
-            return Ok(result);
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
+           
+            
         }
         
-        [HttpPost]
-        public async Task<Formulaire?> CreateForm(Formulaire formulaire)
+        [HttpPost ("/formulaire")]
+        public async Task<IActionResult> CreateForm(Formulaire formulaire)
         {
-            return await _form.CreateForm(formulaire);
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(CreateForm), formulaire);
+            try
+            {
+                var result = (await _form.CreateForm(formulaire)).ToDTO();
+                if (result == null)
+                {
+                    return BadRequest($"Form Id {formulaire.Id} already exists");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
-        [HttpDelete("{id}")]
-        public async Task<bool> DeleteForm(long id)
+        [HttpDelete("/formulaire/{id}")]
+        public async Task<IActionResult> DeleteForm(long id)
         {
-            return await _form.DeleteForm(id);
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteForm), id);
+            try
+            {
+                var result =  await _form.DeleteForm(id);
+                if (result == false)
+                {
+                    return NotFound($"Form Id {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
-        [HttpPut("{id}")]
-        public async Task<bool> UpdateForm(long id, Formulaire formulaire)
+        [HttpPut("/formulaire/{id}")]
+        public async Task<IActionResult> UpdateForm(long id, Formulaire formulaire)
         {
-            return await _form.UpdateForm(id, formulaire);
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateForm), formulaire);
+
+            try
+            {
+                var result = await _form.UpdateForm(id, formulaire);
+                if (result == false)
+                {
+                    return NotFound($"form Id {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
     }
 }
