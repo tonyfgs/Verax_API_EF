@@ -76,16 +76,15 @@ public class DbManagerArticle : IArticleService
     }
 
     
-    public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+    public async Task<Article?> CreateArticle(Article article)
     {
         var entity = new Entities.ArticleEntity()
         {
-            Id = id,
-            Title = title,
-            Description = description,
-            Author = author,
-            DatePublished = date,
-            LectureTime = lectureTime, 
+            Title = article.Title,
+            Description = article.Description,
+            Author = article.Author,
+            DatePublished = article.DatePublished,
+            LectureTime = article.LectureTime, 
         };
         _context.ArticleSet.Add(entity);
         await _context.SaveChangesAsync();

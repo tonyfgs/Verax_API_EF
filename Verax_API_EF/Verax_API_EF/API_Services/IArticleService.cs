@@ -10,8 +10,7 @@ namespace API_Services
         Task<Article?> GetArticleById(int id, int index, int count, ArticleOrderCriteria orderCriterium);
 
 
-        Task<Article?> CreateArticle(long id, string title, string description, string author, string date,
-            int lectureTime);
+        Task<Article?> CreateArticle(Article article);
 
         Task<Article?> DeleteArticle(long id);
 

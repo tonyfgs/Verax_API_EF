@@ -33,7 +33,7 @@ public class DbManagerFormulaire : IFormulaireService
                 formulaireList = _context.FormSet.OrderBy(f => f.DatePublication).Select(f => f.ToModel()).ToList();
                 break;
             case FormOrderCriteria.ByPseudo:
-                formulaireList = _context.FormSet.OrderBy(f => f.Pseudo).Select(f => f.ToModel()).ToList();
+                formulaireList = _context.FormSet.OrderBy(f => f.UserEntityPseudo).Select(f => f.ToModel()).ToList();
                 break;
             default:
                 formulaireList = _context.FormSet.Select(f => f.ToModel()).ToList();
@@ -54,9 +54,10 @@ public class DbManagerFormulaire : IFormulaireService
         var entity = new FormEntity()
         {
             Id = formulaire.Id,
-            Pseudo = formulaire.Pseudo,
+            Link = formulaire.Lien,
             Theme = formulaire.Theme,
-            DatePublication = formulaire.Date
+            DatePublication = formulaire.Date,
+            UserEntityPseudo = formulaire.UserPseudo
         };
         
         _context.FormSet.Add(entity);
@@ -77,9 +78,10 @@ public class DbManagerFormulaire : IFormulaireService
     {
         var entity = _context.FormSet.FirstOrDefault(f => f.Id == id);
         if (entity == null) return false;
-        entity.Pseudo = formulaire.Pseudo;
         entity.Theme = formulaire.Theme;
         entity.DatePublication = formulaire.Date;
+        entity.Link = formulaire.Lien;
+        entity.UserEntityPseudo = formulaire.UserPseudo;
         await _context.SaveChangesAsync();
         return true;
     }

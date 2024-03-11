@@ -41,12 +41,12 @@ public class LibraryContext : DbContext
         modelBuilder.Entity<UserEntity>()
             .HasMany(u => u.Forms)
             .WithOne(f => f.User)
-            .HasForeignKey(f => f.UserEntityId);
+            .HasForeignKey(f => f.UserEntityPseudo);
         
         modelBuilder.Entity<FormEntity>()
             .HasOne(f => f.User)
             .WithMany(u => u.Forms)
-            .HasForeignKey(f => f.UserEntityId);
+            .HasForeignKey(f => f.UserEntityPseudo);
         
         modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
@@ -83,24 +83,24 @@ public class LibraryContext : DbContext
         modelBuilder.Entity<UserEntity>().HasData(
             new UserEntity
             {
-                Id = 1, Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
+                Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
             },
             new UserEntity
             {
-                Id = 2, Nom = "Smith", Prenom = "Tom", Pseudo = "TomS", Mail = "tom@mail.com", Mdp = "1234",
+                Nom = "Smith", Prenom = "Tom", Pseudo = "TomS", Mail = "tom@mail.com", Mdp = "1234",
                 Role = "User"
             },
             new UserEntity
             {
-                Id = 3, Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
+                 Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
             },
             new UserEntity
             {
-                Id = 4, Nom = "Cascarra", Prenom = "Cascarra", Pseudo = "Sha",   Mail = "ShaCasca@gmail.com", Mdp = "1234", Role = "Admin"
+                 Nom = "Cascarra", Prenom = "Cascarra", Pseudo = "Sha",   Mail = "ShaCasca@gmail.com", Mdp = "1234", Role = "Admin"
             },
             new UserEntity
             {
-                Id = 5, Nom = "Sillard", Prenom = "Noa", Pseudo = "NoaSil", Mail = "", Mdp = "1234", Role = "Admin"
+                Nom = "Sillard", Prenom = "Noa", Pseudo = "NoaSil", Mail = "", Mdp = "1234", Role = "Admin"
             }
         );
         
@@ -108,27 +108,27 @@ public class LibraryContext : DbContext
             new ArticleUserEntity
             {
                 ArticleEntityId = 1,
-                UserEntityId = 1
+                UserEntityPseudo = "TonyF"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
-                UserEntityId = 2
+                UserEntityPseudo = "NoaSil"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 3,
-                UserEntityId = 3
+                UserEntityPseudo = "Sha"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 3,
-                UserEntityId = 1
+                UserEntityPseudo = "RedM"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
-                UserEntityId = 3
+                UserEntityPseudo = "TomS"
             }
         );
         
@@ -136,26 +136,23 @@ public class LibraryContext : DbContext
             new FormEntity
             {
                 Id = 1, 
-                Pseudo= "Form 1",
                 DatePublication = "Form 1 Description",
                 Link = "hhtp://form1.com",
-                UserEntityId = 1
+                UserEntityPseudo = "Sha"
             },
             new FormEntity
             {
                 Id = 2,
-                Pseudo= "Form 2",
                 DatePublication = "Form 2 Description",
                 Link = "hhtp://form2.com",
-                UserEntityId = 2
+                UserEntityPseudo = "Sha"
             },
             new FormEntity
             {
                 Id = 3,
-                Pseudo= "Form 3",
                 DatePublication = "Form 3 Description",
                 Link = "hhtp://form3.com",
-                UserEntityId = 3
+                UserEntityPseudo = "Sha"
             }
         );
     }

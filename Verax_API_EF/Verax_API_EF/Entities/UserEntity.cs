@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Entities;
 
 public class UserEntity
 {
-    public long Id { get; set; }
+    [Key]
     public string Pseudo {  get; set; } = string.Empty;
 
     public string Mdp { get; set; } = string.Empty;

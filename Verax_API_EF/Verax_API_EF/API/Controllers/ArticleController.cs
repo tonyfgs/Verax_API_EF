@@ -43,9 +43,9 @@ namespace API.Controllers
         
         
         [HttpPost("/article")]
-        public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+        public async Task<Article?> CreateArticle(Article article)
         {
-            return await _articleService.CreateArticle(id, title, description, author, date, lectureTime);
+            return await _articleService.CreateArticle(article);
         }
 
         [HttpDelete("/article/{id}")]

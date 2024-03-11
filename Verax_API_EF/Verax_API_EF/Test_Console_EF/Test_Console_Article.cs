@@ -117,7 +117,7 @@ void listForms()
         var forms = context.FormSet;
         foreach (var form in forms)
         {
-            Console.WriteLine($"{form.Id} - {form.Link} - {form.DatePublication} - {form.Pseudo} - {form.Theme} - {form.UserEntityId}");
+            Console.WriteLine($"{form.Id} - {form.Link} - {form.DatePublication} - {form.Theme} - {form.UserEntityPseudo}");
         }
     }
 }
@@ -132,8 +132,7 @@ void addForm()
             Theme = "Covid",
             DatePublication = "16-02-2024",
             Link = "https://www.covid.com",
-            Pseudo = "Tony Fages",
-            UserEntityId = 1
+            UserEntityPseudo = "Sha"
         };
         context.FormSet.Add(form);
         context.SaveChanges();
@@ -175,7 +174,7 @@ void listUser()
         var users = context.UserSet;
         foreach (var user in users)
         {
-            Console.WriteLine($"{user.Id} - {user.Pseudo} - {user.Nom} - {user.Prenom} - {user.Mail} - {user.Role}");
+            Console.WriteLine($" {user.Pseudo} - {user.Nom} - {user.Prenom} - {user.Mail} - {user.Role}");
         }
     }
 }
@@ -186,7 +185,7 @@ void addUser()
     {
         var user = new UserEntity
         {
-            Id = 7, Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
+            Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
         };
         context.UserSet.Add(user);
         context.SaveChanges();
@@ -198,7 +197,7 @@ void updateUser()
 {
     using (var context = new LibraryContext())
     {
-        var user = context.UserSet.Where(u => u.Id.Equals(7));
+        var user = context.UserSet.Where(u => u.Pseudo.Equals("Sha"));
 
         foreach (var users in user)
         {
@@ -213,7 +212,7 @@ void deleteUser()
 {
     using (var context = new LibraryContext())
     {
-        var user = context.UserSet.Where(u => u.Id.Equals(7));
+        var user = context.UserSet.Where(u => u.Pseudo.Equals("Sha"));
 
         foreach (var users in user)
         {
@@ -231,7 +230,7 @@ void listArticleUser()
         var articleUsers = context.ArticleUserSet;
         foreach (var articleUser in articleUsers)
         {
-            Console.WriteLine($"{articleUser.ArticleEntityId} - {articleUser.UserEntityId}");
+            Console.WriteLine($"{articleUser.ArticleEntityId} - {articleUser.UserEntityPseudo}");
         }
     }
 }
@@ -243,7 +242,7 @@ void addArticleUser()
         var articleUser = new ArticleUserEntity
         {
             ArticleEntityId = 2,
-            UserEntityId = 1
+            UserEntityPseudo = "Sha"
         };
         context.ArticleUserSet.Add(articleUser);
         context.SaveChanges();
@@ -255,8 +254,8 @@ void updateArticleUser()
 {
     using (var context = new LibraryContext())
     {
-        var articleUser = context.ArticleUserSet.FirstOrDefault(au => au.UserEntityId.Equals(2));
-        if (articleUser != null) articleUser.UserEntityId = 3;
+        var articleUser = context.ArticleUserSet.FirstOrDefault(au => au.UserEntityPseudo.Equals("Sha"));
+        if (articleUser != null) articleUser.UserEntityPseudo = "Sha";
         context.SaveChanges();
     }
     listArticleUser();
@@ -266,7 +265,7 @@ void deleteArticleUser()
 {
     using (var context = new LibraryContext())
     {
-        var articleUser = context.ArticleUserSet.Where(au => au.UserEntityId.Equals(1)).Where(u => u.ArticleEntityId.Equals(1));
+        var articleUser = context.ArticleUserSet.Where(au => au.UserEntityPseudo.Equals(1)).Where(u => u.ArticleEntityId.Equals(1));
 
         foreach (var articleUsers in articleUser)
         {
@@ -281,10 +280,10 @@ void listFormUser()
 {
     using (var context = new LibraryContext())
     {
-        var formUsers = context.FormSet;
+        var formUsers = context.FormSet.Where(u => u.UserEntityPseudo.Equals(1));
         foreach (var formUser in formUsers)
         {
-            Console.WriteLine($"{formUser.UserEntityId}");
+            Console.WriteLine($"{formUser.UserEntityPseudo} - {formUser.Theme} - {formUser.Link}");
         }
     }
 }
@@ -295,7 +294,7 @@ void addFormUser()
     {
         var formUser = new FormEntity
         {
-            UserEntityId = 1
+            UserEntityPseudo = "Sha",
         };
         context.FormSet.Add(formUser);
         context.SaveChanges();

@@ -2,6 +2,6 @@ namespace Entities;
 
 public class ArticleUserEntity
 {
-    public long UserEntityId { get; set; }
+    public string UserEntityPseudo { get; set; }
     public long ArticleEntityId { get; set; }
 }
