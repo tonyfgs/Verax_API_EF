@@ -19,6 +19,8 @@ public class LibraryContext : DbContext
     public DbSet<UserEntity> UserSet { get; set; }
     public DbSet<FormEntity> FormSet { get; set; }
     
+    public DbSet<ArticleUserEntity> ArticleUserSet { get; set; }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -91,6 +93,14 @@ public class LibraryContext : DbContext
             new UserEntity
             {
                 Id = 3, Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
+            },
+            new UserEntity
+            {
+                Id = 4, Nom = "Cascarra", Prenom = "Cascarra", Pseudo = "Sha",   Mail = "ShaCasca@gmail.com", Mdp = "1234", Role = "Admin"
+            },
+            new UserEntity
+            {
+                Id = 5, Nom = "Sillard", Prenom = "Noa", Pseudo = "NoaSil", Mail = "", Mdp = "1234", Role = "Admin"
             }
         );
         
