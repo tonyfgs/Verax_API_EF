@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContextLib.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240311132206_mrg1")]
+    [Migration("20240312155559_mrg1")]
     partial class mrg1
     {
         /// <inheritdoc />
@@ -83,12 +83,12 @@ namespace DbContextLib.Migrations
                     b.Property<long>("ArticleEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UserEntityId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserEntityPseudo")
+                        .HasColumnType("TEXT");
 
-                    b.HasKey("ArticleEntityId", "UserEntityId");
+                    b.HasKey("ArticleEntityId", "UserEntityPseudo");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserEntityPseudo");
 
                     b.ToTable("ArticleUserSet");
 
@@ -96,27 +96,27 @@ namespace DbContextLib.Migrations
                         new
                         {
                             ArticleEntityId = 1L,
-                            UserEntityId = 1L
+                            UserEntityPseudo = "TonyF"
                         },
                         new
                         {
                             ArticleEntityId = 2L,
-                            UserEntityId = 2L
+                            UserEntityPseudo = "NoaSil"
                         },
                         new
                         {
                             ArticleEntityId = 3L,
-                            UserEntityId = 3L
+                            UserEntityPseudo = "Sha"
                         },
                         new
                         {
                             ArticleEntityId = 3L,
-                            UserEntityId = 1L
+                            UserEntityPseudo = "RedM"
                         },
                         new
                         {
                             ArticleEntityId = 2L,
-                            UserEntityId = 3L
+                            UserEntityPseudo = "TomS"
                         });
                 });
 
@@ -134,20 +134,17 @@ namespace DbContextLib.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Pseudo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Theme")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("UserEntityId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserEntityPseudo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserEntityId");
+                    b.HasIndex("UserEntityPseudo");
 
                     b.ToTable("FormSet");
 
@@ -157,35 +154,31 @@ namespace DbContextLib.Migrations
                             Id = 1L,
                             DatePublication = "Form 1 Description",
                             Link = "hhtp://form1.com",
-                            Pseudo = "Form 1",
                             Theme = "",
-                            UserEntityId = 1L
+                            UserEntityPseudo = "Sha"
                         },
                         new
                         {
                             Id = 2L,
                             DatePublication = "Form 2 Description",
                             Link = "hhtp://form2.com",
-                            Pseudo = "Form 2",
                             Theme = "",
-                            UserEntityId = 2L
+                            UserEntityPseudo = "Sha"
                         },
                         new
                         {
                             Id = 3L,
                             DatePublication = "Form 3 Description",
                             Link = "hhtp://form3.com",
-                            Pseudo = "Form 3",
                             Theme = "",
-                            UserEntityId = 3L
+                            UserEntityPseudo = "Sha"
                         });
                 });
 
             modelBuilder.Entity("Entities.UserEntity", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Pseudo")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Mail")
                         .IsRequired()
@@ -203,67 +196,58 @@ namespace DbContextLib.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Pseudo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("Pseudo");
 
                     b.ToTable("UserSet");
 
                     b.HasData(
                         new
                         {
-                            Id = 1L,
+                            Pseudo = "TonyF",
                             Mail = "tony@gmail.com",
                             Mdp = "1234",
                             Nom = "Fages",
                             Prenom = "Tony",
-                            Pseudo = "TonyF",
                             Role = "Admin"
                         },
                         new
                         {
-                            Id = 2L,
+                            Pseudo = "TomS",
                             Mail = "tom@mail.com",
                             Mdp = "1234",
                             Nom = "Smith",
                             Prenom = "Tom",
-                            Pseudo = "TomS",
                             Role = "User"
                         },
                         new
                         {
-                            Id = 3L,
+                            Pseudo = "RedM",
                             Mail = "M&M#mail.com",
                             Mdp = "1234",
                             Nom = "M&M's",
                             Prenom = "Red",
-                            Pseudo = "RedM",
                             Role = "Modérator"
                         },
                         new
                         {
-                            Id = 4L,
+                            Pseudo = "Sha",
                             Mail = "ShaCasca@gmail.com",
                             Mdp = "1234",
                             Nom = "Cascarra",
                             Prenom = "Cascarra",
-                            Pseudo = "Sha",
                             Role = "Admin"
                         },
                         new
                         {
-                            Id = 5L,
+                            Pseudo = "NoaSil",
                             Mail = "",
                             Mdp = "1234",
                             Nom = "Sillard",
                             Prenom = "Noa",
-                            Pseudo = "NoaSil",
                             Role = "Admin"
                         });
                 });
@@ -278,7 +262,7 @@ namespace DbContextLib.Migrations
 
                     b.HasOne("Entities.UserEntity", null)
                         .WithMany()
-                        .HasForeignKey("UserEntityId")
+                        .HasForeignKey("UserEntityPseudo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -287,7 +271,7 @@ namespace DbContextLib.Migrations
                 {
                     b.HasOne("Entities.UserEntity", "User")
                         .WithMany("Forms")
-                        .HasForeignKey("UserEntityId")
+                        .HasForeignKey("UserEntityPseudo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

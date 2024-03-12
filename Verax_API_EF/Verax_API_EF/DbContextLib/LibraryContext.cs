@@ -51,7 +51,6 @@ public class LibraryContext : DbContext
             .HasOne(f => f.User)
             .WithMany(u => u.Forms)
             .HasForeignKey(f => f.UserEntityPseudo);
-        
         /*
         modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
