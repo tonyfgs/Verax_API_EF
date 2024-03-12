@@ -42,7 +42,7 @@ steps:
       - dotnet build Verax_API_EF.sln -c Release --no-restore
       - dotnet test Verax_API_EF.sln --logger trx --no-restore
       - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
-      - dotnet publish Linaris/Linaris.csproj -c Release --no-restore -o $CI_PROJECT_DIR/build/release
+      - dotnet publish Verax_API_EF.sln -c Release --no-restore -o $CI_PROJECT_DIR/build/release
       - dotnet sonarscanner end /d:sonar.login=$${sonar_token}
     when:
       branch:
