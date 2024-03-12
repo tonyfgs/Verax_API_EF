@@ -1,6 +1,7 @@
 using API_Services;
 using DbContextLib;
 using Entities;
+using Microsoft.Extensions.Logging;
 using Model;
 
 namespace DbDataManager;
@@ -14,11 +15,17 @@ public class DbManagerArticleUser : IArticleUserService
         _context = context;
     }
     
-    public async Task<IEnumerable<ArticleUserEntity?>> GetAllArticleUsers()
+    public async Task<IEnumerable<User?>> GetAllArticleUsers()
     {
         var entities = _context.ArticleUserSet.ToList();
-        if (entities == null) return await Task.FromResult<IEnumerable<ArticleUserEntity?>>(null);
-        return await Task.FromResult(entities.AsEnumerable());
+        List<UserEntity> users = new List<UserEntity>();
+        foreach( var articleUser in entities)
+        {
+            var user = _context.UserSet.FirstOrDefault(u => u.Pseudo.Equals(articleUser.UserEntityPseudo));
+            if (user != null) users.Add(user);
+        }
+        if (users == null) return await Task.FromResult<IEnumerable<User?>>(null);
+        return await Task.FromResult(users.Select(u => u.ToModel()).AsEnumerable());
     }
 
     public async Task<ArticleUserEntity?> GetArticleUser(string pseudo)

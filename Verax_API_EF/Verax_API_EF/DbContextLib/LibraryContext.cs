@@ -1,10 +1,13 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace DbContextLib;
 
 public class LibraryContext : DbContext
 {
+    
+    private static readonly StreamWriter LogFile = new StreamWriter("log.txt");
     public LibraryContext()
         : base()
     { }
@@ -23,6 +26,7 @@ public class LibraryContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.LogTo( l => LogFile.WriteLine(l),  LogLevel.Error).EnableDetailedErrors().EnableDetailedErrors();
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlite($"Data Source=Entity_FrameWork.Article.db");
@@ -48,6 +52,7 @@ public class LibraryContext : DbContext
             .WithMany(u => u.Forms)
             .HasForeignKey(f => f.UserEntityPseudo);
         
+        /*
         modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
             {
@@ -155,5 +160,6 @@ public class LibraryContext : DbContext
                 UserEntityPseudo = "Sha"
             }
         );
+        */
     }
 }

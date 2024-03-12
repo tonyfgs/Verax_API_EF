@@ -39,8 +39,8 @@ app.MapControllers();
 
 using var scoped = app.Services.CreateScope();
 var libraryContext = scoped.ServiceProvider.GetService<LibraryContext>();
-libraryContext.Database.EnsureCreated();
-//libraryContext.Database.Migrate();
+//libraryContext.Database.EnsureCreated();
+libraryContext.Database.Migrate();
 app.Run();
 
 

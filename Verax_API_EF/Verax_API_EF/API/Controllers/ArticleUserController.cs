@@ -1,3 +1,4 @@
+using API_Mapping;
 using API_Services;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ public class ArticleUserController : ControllerBase
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllArticleUsers), "");
         try
         {
-            var result =  await _us.GetAllArticleUsers();
+            var result = (await _us.GetAllArticleUsers()).Select(u => u.ToDTO());
             if (result == null)
             {
                 return NoContent();

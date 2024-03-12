@@ -1,10 +1,11 @@
 using Entities;
+using Model;
 
 namespace API_Services;
 
 public interface IArticleUserService
 {
-    Task<IEnumerable<ArticleUserEntity>> GetAllArticleUsers();
+    Task<IEnumerable<User?>> GetAllArticleUsers();
     Task<ArticleUserEntity?> GetArticleUser(string pseudo);
         
     Task<ArticleUserEntity?> CreateArticleUser(ArticleUserEntity articleUser);
