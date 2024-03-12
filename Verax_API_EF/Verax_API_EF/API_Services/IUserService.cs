@@ -12,6 +12,15 @@ namespace API_Services
         Task<bool> Update(User user, string pseudo);
 
         Task<bool> Delete(string pseudo);
+        
+        Task<IEnumerable<User?>> GetAllArticleUsers();
+        Task<IEnumerable<Article?>> GetArticleUser(string pseudo);
+        
+        Task<bool> CreateArticleUser(ArticleUserEntity articleUser);
+    
+        Task<bool> DeleteArticleUser(string pseudo);
+    
+        Task<bool> UpdateArticleUser(ArticleUserEntity articleUser);
 
  
 

@@ -23,7 +23,6 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 builder.Services.AddScoped<IArticleService, DbManagerArticle>();
 builder.Services.AddScoped<IUserService, DbManagerUser>();
 builder.Services.AddScoped<IFormulaireService, DbManagerFormulaire>();
-builder.Services.AddScoped<IArticleUserService, DbManagerArticleUser>();
 
 var app = builder.Build();
 

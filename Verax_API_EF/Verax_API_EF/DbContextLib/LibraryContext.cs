@@ -26,7 +26,7 @@ public class LibraryContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.LogTo( l => LogFile.WriteLine(l),  LogLevel.Error).EnableDetailedErrors().EnableDetailedErrors();
+        optionsBuilder.LogTo( LogFile.WriteLine,  LogLevel.Error).EnableDetailedErrors().EnableDetailedErrors();
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlite($"Data Source=Entity_FrameWork.Article.db");
@@ -160,5 +160,17 @@ public class LibraryContext : DbContext
             }
         );
         */
+    }
+    
+    public override void Dispose()
+    {
+        base.Dispose();
+        LogFile.Dispose();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        await LogFile.DisposeAsync();
     }
 }

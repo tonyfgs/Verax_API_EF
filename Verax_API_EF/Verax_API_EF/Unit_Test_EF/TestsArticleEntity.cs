@@ -2,11 +2,10 @@ using DbContextLib;
 using Entities;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
-namespace Tests;
+namespace TestsUnitaires;
 
-public class ArticleDB_Tests
+public class TestsArticleEntity
 {
     [Fact]
     public void Add_Test()

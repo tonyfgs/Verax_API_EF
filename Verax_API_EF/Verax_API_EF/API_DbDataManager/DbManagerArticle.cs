@@ -11,9 +11,7 @@ public class DbManagerArticle : IArticleService
     private readonly LibraryContext _context;
 
     public DbManagerArticle(LibraryContext context)
-    {
-        _context = context;
-    }
+        => this._context = context;
     public async Task<IEnumerable<Article?>> GetAllArticles(int index, int count, ArticleOrderCriteria orderCriterium)
     {
         List<Article> articles = new List<Article>();
@@ -92,6 +90,7 @@ public class DbManagerArticle : IArticleService
         await _context.SaveChangesAsync();
         return true;
     }
-
+    
+    
     
 }

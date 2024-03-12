@@ -11,9 +11,7 @@ public class DbManagerFormulaire : IFormulaireService
     private readonly LibraryContext _context;
 
     public DbManagerFormulaire(LibraryContext context)
-    {
-        _context = context;
-    }
+        => this._context = context;
 
     public async Task<IEnumerable<Formulaire?>> GetAllForm(int index, int count, FormOrderCriteria orderCriteria)
     {
