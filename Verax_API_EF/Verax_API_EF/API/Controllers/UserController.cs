@@ -12,12 +12,13 @@ namespace API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _us;
+        //private readonly IUserService _us;
+        private readonly IDataManager _dataManager;
         private readonly ILogger<UserController> _logger;
-        public UserController(IUserService us, ILogger<UserController> logger)
+        public UserController(IDataManager dataManager, ILogger<UserController> logger)
         {
-            this._us = us;
             this._logger = logger;
+            this._dataManager = dataManager;
         }
         
         [HttpGet("/users")]
@@ -26,7 +27,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAll), index, count, orderCriteria);
             try
             {
-                var result = (await _us.GetAll(index, count, orderCriteria)).Select(u => u.ToDTO());
+                var result = (await _dataManager.UserService.GetAll(index, count, orderCriteria)).Select(u => u.ToDTO());
                 if (result == null)
                 {
                     return NotFound($"No user found with the given parameters");
@@ -46,7 +47,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetByPseudo), pseudo);
             try
             {
-                var result = (await _us.GetByPseudo(pseudo)).ToDTO();
+                var result = (await _dataManager.UserService.GetByPseudo(pseudo)).ToDTO();
                 if (result == null)
                 {
                     return NotFound($"Psuedo {pseudo} not found");
@@ -67,7 +68,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(Create), user);
             try
             {
-                var result = await _us.Create(user);
+                var result = await _dataManager.UserService.Create(user);
                 if (result == false)
                 {
                     return BadRequest($"User {user.Pseudo} already exists");
@@ -89,7 +90,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(Update), user, pseudo);
             try
             {
-                var result = await _us.Update(user,pseudo);
+                var result = await _dataManager.UserService.Update(user,pseudo);
                 if (result == false)
                 {
                     return NotFound();
@@ -110,7 +111,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(Delete), pseudo);
             try
             {
-                var result = await _us.Delete(pseudo);
+                var result = await _dataManager.UserService.Delete(pseudo);
                 if (result == false)
                 {
                     return NotFound();
@@ -130,7 +131,7 @@ namespace API.Controllers
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllArticleUsers), "");
         try
         {
-            var result = (await _us.GetAllArticleUsers()).Select(u => u.ToDTO());
+            var result = (await _dataManager.UserService.GetAllArticleUsers()).Select(u => u.ToDTO());
             if (result == null)
             {
                 return NoContent();
@@ -150,7 +151,7 @@ namespace API.Controllers
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetArticleUser), pseudo);
         try
         {
-            var result = (await _us.GetArticleUser(pseudo)).Select(a => a.ToDTO());
+            var result = (await _dataManager.UserService.GetArticleUser(pseudo)).Select(a => a.ToDTO());
             if (result == null)
             {
                 return NoContent();
@@ -171,7 +172,7 @@ namespace API.Controllers
         try
         {
             Console.WriteLine(articleUser);
-            var result = await _us.CreateArticleUser(articleUser);
+            var result = await _dataManager.UserService.CreateArticleUser(articleUser);
             if (result == null)
             {
                 return BadRequest($"ArticleUser {articleUser.UserEntityPseudo} already exists");
@@ -191,7 +192,7 @@ namespace API.Controllers
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteArticleUser), pseudo);
         try
         {
-            var result = await _us.DeleteArticleUser(pseudo);
+            var result = await _dataManager.UserService.DeleteArticleUser(pseudo);
             if (!result)
             {
                 return BadRequest($"ArticleUser {pseudo} does not exist");
@@ -211,7 +212,7 @@ namespace API.Controllers
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticleUser), articleUser);
         try
         {
-            var result = await _us.UpdateArticleUser(articleUser);
+            var result = await _dataManager.UserService.UpdateArticleUser(articleUser);
             if (!result)
             {
                 return BadRequest($"ArticleUser {articleUser.UserEntityPseudo} does not exist");
