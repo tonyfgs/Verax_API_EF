@@ -83,14 +83,13 @@ public class UnitTest_Article
         var mockArticleService = new Mock<IArticleService>();
         var expected = new Article()
         {
-            Id = 1,
             Title = "Test",
             Description = "Test",
             Author = "Test",
             DatePublished = "Test",
             LectureTime = 10
         };
-        mockArticleService.Setup(x => x.CreateArticle(expected)).ReturnsAsync(expected);
+        mockArticleService.Setup(x => x.CreateArticle(expected));
         var result = mockArticleService.Object.CreateArticle(expected);
         Assert.Equal(1, result.Id );
         var updated = new Article()
@@ -101,8 +100,30 @@ public class UnitTest_Article
             DatePublished = "Test",
             LectureTime = 10
         };
+        mockArticleService.Setup(x => x.UpdateArticle(1, updated)).ReturnsAsync(true);
         var resultUpdated = mockArticleService.Object.UpdateArticle(1, updated); 
-        // Je comprends pas pourquoi ça ne passe pas regarde STP Louis
-        //Assert.True(resultUpdated.Result);
+        Assert.True(resultUpdated.Result);
     }
+    
+    [Fact]
+    static void DeletedArticle()
+    {
+        var mockArticleService = new Mock<IArticleService>();
+        var expected = new Article()
+        {
+            Id = 1,
+            Title = "Test",
+            Description = "Test",
+            Author = "Test",
+            DatePublished = "Test",
+            LectureTime = 10
+        };
+        mockArticleService.Setup(x => x.CreateArticle(expected)).ReturnsAsync(expected);
+        var result = mockArticleService.Object.CreateArticle(expected);
+        Assert.Equal(expected, result.Result);
+        mockArticleService.Setup(x => x.DeleteArticle(1)).ReturnsAsync(expected);
+        var resultDeleted = mockArticleService.Object.DeleteArticle(1);
+        Assert.Equal(expected, result.Result);
+    }
+    
 }
