@@ -33,12 +33,11 @@ steps:
       sonar_token:
         from_secret: SECRET_SONAR_LOGIN # Secret de Drone
       project_key: Verax_API_EF
-      coverage_exclusions: "Unit_Test_EF/**","API_Unit_Test/**"
     commands:
       - cd Verax_API_EF/
       - cd Verax_API_EF/
       - dotnet restore Verax_API_EF.sln
-      - dotnet sonarscanner begin /k:$${project_key} /d:sonar.host.url=$${sonar_host} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions=$${coverage_exclusions} /d:sonar.login=$${sonar_token} 
+      - dotnet sonarscanner begin /k:$${project_key} /d:sonar.host.url=$${sonar_host} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Unit_Test_EF/**","API_Unit_Test/**" /d:sonar.login=$${sonar_token} 
       - dotnet build Verax_API_EF.sln -c Release --no-restore
       - dotnet test Verax_API_EF.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
       - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
