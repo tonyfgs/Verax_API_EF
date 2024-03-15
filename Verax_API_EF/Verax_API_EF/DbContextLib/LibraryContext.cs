@@ -26,7 +26,7 @@ public class LibraryContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.LogTo( LogFile.WriteLine,  LogLevel.Error).EnableDetailedErrors().EnableDetailedErrors();
+        optionsBuilder.LogTo(message => LogFile.WriteLine(message), LogLevel.Information);        
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlite($"Data Source=Entity_FrameWork.Article.db");

@@ -43,7 +43,7 @@ public class DbManagerUser: IUserService
         return await Task.FromResult(entity.ToModel());
     }
     
-    public async Task<bool> Create(User user)
+    public async Task<User?> Create(User user)
     {
         var entity = new UserEntity()
         {
@@ -55,30 +55,33 @@ public class DbManagerUser: IUserService
             Role = user.Role
         };
         _context.UserSet.Add(entity);
-        await _context.SaveChangesAsync();
-        return true;
+        var result =  await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<User?>(null);
+        return await Task.FromResult(entity.ToModel());
     }
 
-    public async Task<bool> Update(User user, string pseudo)
+    public async Task<User?> Update(User user, string pseudo)
     {
         var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == pseudo);
-        if (entity == null) return false;
+        if (entity == null) return await Task.FromResult<User?>(null);
         entity.Mdp = user.Mdp;
         entity.Mail = user.Mail;
         entity.Role = user.Role;
         entity.Prenom = user.Prenom;
         entity.Nom = user.Nom;
-        await _context.SaveChangesAsync();
-        return true;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<User?>(null);
+        return await Task.FromResult(entity.ToModel());
     }
 
-    public async Task<bool> Delete(string pseudo)
+    public async Task<User?> Delete(string pseudo)
     {
         var entity = _context.UserSet.FirstOrDefault(u => u.Pseudo == pseudo);
-        if (entity == null) return await Task.FromResult(false);
+        if (entity == null) return await Task.FromResult<User?>(null);
         _context.UserSet.Remove(entity);
-        await _context.SaveChangesAsync();
-        return await Task.FromResult(true);
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<User?>(null);
+        return await Task.FromResult(entity.ToModel());
     }
     
     public async Task<IEnumerable<User?>> GetAllArticleUsers()
@@ -124,9 +127,10 @@ public class DbManagerUser: IUserService
         return await Task.FromResult(true);
     }
     
-    public async Task<bool> DeleteArticleUser(string pseudo)
+    public async Task<bool> DeleteArticleUser(string pseudo, long id)
     {
-        var entity = _context.ArticleUserSet.FirstOrDefault(a => a.UserEntityPseudo.Equals(pseudo));
+        
+        var entity = _context.ArticleUserSet.FirstOrDefault(a => a.UserEntityPseudo.Equals(pseudo) && a.ArticleEntityId.Equals(id));
         if (entity == null) return await Task.FromResult(false);
         _context.ArticleUserSet.Remove(entity);
         await _context.SaveChangesAsync();

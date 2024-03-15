@@ -100,9 +100,9 @@ public class UnitTest_Article
             DatePublished = "Test",
             LectureTime = 10
         };
-        mockArticleService.Setup(x => x.UpdateArticle(1, updated)).ReturnsAsync(true);
+        mockArticleService.Setup(x => x.UpdateArticle(1, updated)).ReturnsAsync(updated);
         var resultUpdated = mockArticleService.Object.UpdateArticle(1, updated); 
-        Assert.True(resultUpdated.Result);
+        Assert.Equal(updated ,resultUpdated.Result);
     }
     
     [Fact]

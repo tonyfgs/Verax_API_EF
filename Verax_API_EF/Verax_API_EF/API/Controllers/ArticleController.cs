@@ -21,6 +21,7 @@ namespace API.Controllers
             this._logger = logger;
         }
         
+        [Route("/articles")]
         [HttpGet]
         public async Task<IActionResult> GetAllArticles([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] ArticleOrderCriteria orderCriterium = ArticleOrderCriteria.None)
         {
@@ -109,8 +110,8 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticle), id, a);
             try 
             {
-                var result = await _dataManager.ArticleService.UpdateArticle(id, a);
-                if (result == false)
+                var result = (await _dataManager.ArticleService.UpdateArticle(id, a)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"Article ID {id} not found");
                 }

@@ -14,7 +14,7 @@ namespace API_Services
 
         Task<Article?> DeleteArticle(long id);
 
-         Task<bool> UpdateArticle(long id, Article? a);
+         Task<Article?> UpdateArticle(long id, Article? a);
 
        
     }

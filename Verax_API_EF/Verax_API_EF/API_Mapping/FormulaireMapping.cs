@@ -5,7 +5,7 @@ namespace API_Mapping;
 
 public static class FormulaireMapping
 {
-    public static FormulaireDTO ToDTO(this Formulaire f) => new()
+    public static FormulaireDTO ToDTO(this Formulaire? f) => new()
     {
         Id = f.Id,
         Theme = f.Theme,

@@ -59,28 +59,31 @@ public class DbManagerFormulaire : IFormulaireService
         };
         
         _context.FormSet.Add(entity);
-        await _context.SaveChangesAsync();
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
         return entity.ToModel();
     }
 
-    public async Task<bool> DeleteForm(long id)
+    public async Task<Formulaire?> DeleteForm(long id)
     {
         var entity = _context.FormSet.FirstOrDefault(f => f.Id == id);
-        if (entity == null) return false;
+        if (entity == null) return Task.FromResult<Formulaire?>(null).Result;
         _context.FormSet.Remove(entity);
-        await _context.SaveChangesAsync();
-        return true;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
+        return entity.ToModel();
     }
 
-    public async Task<bool> UpdateForm(long id, Formulaire formulaire)
+    public async Task<Formulaire?> UpdateForm(long id, Formulaire formulaire)
     {
         var entity = _context.FormSet.FirstOrDefault(f => f.Id == id);
-        if (entity == null) return false;
+        if (entity == null) return Task.FromResult<Formulaire?>(null).Result;
         entity.Theme = formulaire.Theme;
         entity.DatePublication = formulaire.Date;
         entity.Link = formulaire.Lien;
         entity.UserEntityPseudo = formulaire.UserPseudo;
-        await _context.SaveChangesAsync();
-        return true;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
+        return entity.ToModel();
     }
 }

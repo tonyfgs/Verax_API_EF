@@ -91,8 +91,8 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteForm), id);
             try
             {
-                var result =  await _dataManager.FormulaireService.DeleteForm(id);
-                if (result == false)
+                var result = (await _dataManager.FormulaireService.DeleteForm(id)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"Form Id {id} not found");
                 }
@@ -112,8 +112,8 @@ namespace API.Controllers
 
             try
             {
-                var result = await _dataManager.FormulaireService.UpdateForm(id, formulaire);
-                if (result == false)
+                var result = (await _dataManager.FormulaireService.UpdateForm(id, formulaire)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"form Id {id} not found");
                 }

@@ -13,13 +13,13 @@ class Tests_Console
     static async Task Main(string[] args)
     {
         //await TestUser();
-        //await TestFormulaire();
+        await TestFormulaire();
         //await TestArticle();
     }
 
     private static async Task TestFormulaire()
     {
-        //await TestFormulaireGetAll();
+        await TestFormulaireGetAll();
         //await TestFormulaireGetId();
         //await TestFormulaireCreate();
         //await TestFormulaireDelete();
@@ -37,7 +37,7 @@ class Tests_Console
         //await TestGetArticleByUser();
         //await TestCreateArticleUser();
         //await TestDeleteArticleUser();
-        await TestUpdateArticleUser();
+        //await TestUpdateArticleUser();
     }
 
 

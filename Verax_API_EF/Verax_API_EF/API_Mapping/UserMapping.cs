@@ -5,7 +5,7 @@ namespace API_Mapping;
 
 public static class UserMapping
 {
-    public static UserDTO ToDTO(this User u) => new()
+    public static UserDTO ToDTO(this User? u) => new()
     {
         Pseudo = u.Pseudo,
         Mdp = u.Mdp,
