@@ -11,9 +11,7 @@ public class DbManagerArticle : IArticleService
     private readonly LibraryContext _context;
 
     public DbManagerArticle(LibraryContext context)
-    {
-        _context = context;
-    }
+        => this._context = context;
     public async Task<IEnumerable<Article?>> GetAllArticles(int index, int count, ArticleOrderCriteria orderCriterium)
     {
         List<Article> articles = new List<Article>();
@@ -65,8 +63,8 @@ public class DbManagerArticle : IArticleService
             LectureTime = article.LectureTime, 
         };
         _context.ArticleSet.Add(entity);
-        await _context.SaveChangesAsync();
-        
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Article?>(null);        
         return entity.ToModel();
     }
     
@@ -76,22 +74,25 @@ public class DbManagerArticle : IArticleService
         Console.WriteLine(entity);
         if (entity == null) return null;
         _context.ArticleSet.Remove(entity);
-        await _context.SaveChangesAsync();
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Article?>(null);
         return entity.ToModel();
     }
 
-    public async Task<bool> UpdateArticle(long id, Article? a)
+    public async Task<Article?> UpdateArticle(long id, Article? a)
     {
         var entity = _context.ArticleSet.FirstOrDefault(a => a.Id == id);
-        if (entity == null) return false;
+        if (entity == null) return await Task.FromResult<Article?>(null);
         entity.Title = a.Title;
         entity.Description = a.Description;
         entity.Author = a.Author;
         entity.DatePublished = a.DatePublished;
         entity.LectureTime = a.LectureTime;
-        await _context.SaveChangesAsync();
-        return true;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Article?>(null);
+        return entity.ToModel();
     }
-
+    
+    
     
 }

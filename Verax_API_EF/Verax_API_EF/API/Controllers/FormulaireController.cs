@@ -12,12 +12,13 @@ namespace API.Controllers
     [ApiController]
     public class FormulaireController : ControllerBase
     {
-        private readonly IFormulaireService _form;
+        //private readonly IFormulaireService _form;
+        private readonly IDataManager _dataManager;
         private readonly ILogger<FormulaireController> _logger;
 
-        public FormulaireController(IFormulaireService iform, ILogger<FormulaireController> logger)
+        public FormulaireController(IDataManager dataManager, ILogger<FormulaireController> logger)
         {
-            this._form = iform;
+            this._dataManager = dataManager;
             this._logger = logger;
         }
 
@@ -27,7 +28,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllForm), index, count, orderCriteria);
             try
             {
-                var result = (await _form.GetAllForm(index, count, orderCriteria)).Select(f => f.ToDTO());
+                var result = (await _dataManager.FormulaireService.GetAllForm(index, count, orderCriteria)).Select(f => f.ToDTO());
                 if (result == null)
                 {
                     return NotFound($"No form found");
@@ -48,7 +49,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetById), id);
             try
             {
-                var result = (await _form.GetById(id)).ToDTO();
+                var result = (await _dataManager.FormulaireService.GetById(id)).ToDTO();
                 if (result == null)
                 {
                     return NotFound($"form ID {id} not found");
@@ -70,7 +71,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(CreateForm), formulaire);
             try
             {
-                var result = (await _form.CreateForm(formulaire)).ToDTO();
+                var result = (await _dataManager.FormulaireService.CreateForm(formulaire)).ToDTO();
                 if (result == null)
                 {
                     return BadRequest($"Form Id {formulaire.Id} already exists");
@@ -90,8 +91,8 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteForm), id);
             try
             {
-                var result =  await _form.DeleteForm(id);
-                if (result == false)
+                var result = (await _dataManager.FormulaireService.DeleteForm(id)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"Form Id {id} not found");
                 }
@@ -111,8 +112,8 @@ namespace API.Controllers
 
             try
             {
-                var result = await _form.UpdateForm(id, formulaire);
-                if (result == false)
+                var result = (await _dataManager.FormulaireService.UpdateForm(id, formulaire)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"form Id {id} not found");
                 }

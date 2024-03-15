@@ -12,7 +12,7 @@ public interface IFormulaireService
     
     Task<Formulaire?> CreateForm(Formulaire formulaire);
 
-    Task<bool> DeleteForm(long id);
+    Task<Formulaire?> DeleteForm(long id);
 
-    Task<bool> UpdateForm(long id, Formulaire formulaire);
+    Task<Formulaire?> UpdateForm(long id, Formulaire formulaire);
 }

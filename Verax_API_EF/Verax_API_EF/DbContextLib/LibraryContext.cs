@@ -1,28 +1,37 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace DbContextLib;
 
 public class LibraryContext : DbContext
 {
+
     public LibraryContext()
         : base()
-    { }
+    {
+    }
 
     public LibraryContext(DbContextOptions<LibraryContext> options)
         : base(options)
-    { }
-    
-    
-    
+    {
+    }
+
+
+
     public DbSet<ArticleEntity> ArticleSet { get; set; }
     public DbSet<UserEntity> UserSet { get; set; }
     public DbSet<FormEntity> FormSet { get; set; }
-    
+
     public DbSet<ArticleUserEntity> ArticleUserSet { get; set; }
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.LogTo(message =>
+        {
+            using var logFile = new StreamWriter("log.txt", append: true);
+            logFile.WriteLine(message);
+        }, LogLevel.Information);
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlite($"Data Source=Entity_FrameWork.Article.db");
@@ -37,17 +46,17 @@ public class LibraryContext : DbContext
             .HasMany(a => a.Users)
             .WithMany(a => a.Articles)
             .UsingEntity<ArticleUserEntity>();
-        
+
         modelBuilder.Entity<UserEntity>()
             .HasMany(u => u.Forms)
             .WithOne(f => f.User)
             .HasForeignKey(f => f.UserEntityPseudo);
-        
+
         modelBuilder.Entity<FormEntity>()
             .HasOne(f => f.User)
             .WithMany(u => u.Forms)
             .HasForeignKey(f => f.UserEntityPseudo);
-        
+        /*
         modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
             {
@@ -76,7 +85,7 @@ public class LibraryContext : DbContext
                 Description = "M&M's new recipe is out and it's the best chocolate ever",
                 DatePublished = "2022-02-06",
                 LectureTime = 1,
-                Author = "M&M's Red" 
+                Author = "M&M's Red"
             }
         );
 
@@ -103,7 +112,7 @@ public class LibraryContext : DbContext
                 Nom = "Sillard", Prenom = "Noa", Pseudo = "NoaSil", Mail = "", Mdp = "1234", Role = "Admin"
             }
         );
-        
+
         modelBuilder.Entity<ArticleUserEntity>().HasData(
             new ArticleUserEntity
             {
@@ -131,11 +140,11 @@ public class LibraryContext : DbContext
                 UserEntityPseudo = "TomS"
             }
         );
-        
+
         modelBuilder.Entity<FormEntity>().HasData(
             new FormEntity
             {
-                Id = 1, 
+                Id = 1,
                 DatePublication = "Form 1 Description",
                 Link = "hhtp://form1.com",
                 UserEntityPseudo = "Sha"
@@ -155,5 +164,6 @@ public class LibraryContext : DbContext
                 UserEntityPseudo = "Sha"
             }
         );
+        */
     }
 }

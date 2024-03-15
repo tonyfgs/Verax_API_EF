@@ -11,22 +11,24 @@ namespace API.Controllers
     public class ArticleController : ControllerBase
     {
         
-        private readonly IArticleService _articleService;
+        //private readonly IArticleService _articleService;
+        private readonly IDataManager _dataManager;
         private readonly ILogger<ArticleController> _logger;
         
-        public ArticleController(IArticleService articleService, ILogger<ArticleController> logger)
+        public ArticleController(IDataManager dataManager, ILogger<ArticleController> logger)
         {
-            this._articleService = articleService;
+            this._dataManager = dataManager;
             this._logger = logger;
         }
         
+        [Route("/articles")]
         [HttpGet]
         public async Task<IActionResult> GetAllArticles([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] ArticleOrderCriteria orderCriterium = ArticleOrderCriteria.None)
         {
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllArticles), index, count, orderCriterium);
             try 
             {
-                var result = (await _articleService.GetAllArticles(index, count, orderCriterium)).Select(a => a.ToDTO());
+                var result = (await _dataManager.ArticleService.GetAllArticles(index, count, orderCriterium)).Select(a => a.ToDTO());
                 if (result == null)
                 {
                     return NotFound();
@@ -46,7 +48,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetArticleById), id);
             try 
             {
-                var result = (await _articleService.GetArticleById(id)).ToDTO();
+                var result = (await _dataManager.ArticleService.GetArticleById(id)).ToDTO();
                 if (result == null)
                 {
                     return NotFound($"Article ID {id} not found");
@@ -68,7 +70,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(CreateArticle), article);
             try 
             {
-                var result = (await _articleService.CreateArticle(article)).ToDTO();
+                var result = (await _dataManager.ArticleService.CreateArticle(article)).ToDTO();
                 if (result == null)
                 {
                     return BadRequest($"Article not created");
@@ -88,7 +90,7 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteArticle), id);
             try 
             {
-                var result = await _articleService.DeleteArticle(id);
+                var result = await _dataManager.ArticleService.DeleteArticle(id);
                 if (result == null)
                 {
                     return NotFound($"Article ID {id} not found");
@@ -108,8 +110,8 @@ namespace API.Controllers
             _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticle), id, a);
             try 
             {
-                var result = await _articleService.UpdateArticle(id, a);
-                if (result == false)
+                var result = (await _dataManager.ArticleService.UpdateArticle(id, a)).ToDTO();
+                if (result == null)
                 {
                     return NotFound($"Article ID {id} not found");
                 }

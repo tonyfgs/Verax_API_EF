@@ -2,11 +2,10 @@ using DbContextLib;
 using Entities;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
-namespace Tests;
+namespace TestsUnitaires;
 
-public class ArticleDB_Tests
+public class TestsArticleEntity
 {
     [Fact]
     public void Add_Test()
@@ -21,13 +20,13 @@ public class ArticleDB_Tests
         using (var context = new LibraryContext(options))
         {
             context.Database.EnsureCreated();
-            ArticleEntity a1 = new ArticleEntity { Id = 1, Title = "Breaking News Elisabeth 2 Died", Description = "The queen of England died today at the age of 95", DatePublished = "2022-02-06", LectureTime = 2, Author = "Tom Smith" };
-            ArticleEntity a2 = new ArticleEntity { Id = 2, Title = "The new iPhone 15", Description = "The new iPhone 15 is out and it's the best phone ever", DatePublished = "2022-02-06", LectureTime = 3, Author = "Tom Smith" };
-            ArticleEntity a3 = new ArticleEntity { Id = 3, Title = "M&M's new recipe", Description = "M&M's new recipe is out and it's the best chocolate ever", DatePublished = "2022-02-06", LectureTime = 1, Author = "M&M's Red" };
+            ArticleEntity a1 = new ArticleEntity {  Title = "Breaking News Elisabeth 2 Died", Description = "The queen of England died today at the age of 95", DatePublished = "2022-02-06", LectureTime = 2, Author = "Tom Smith" };
+            ArticleEntity a2 = new ArticleEntity { Title = "The new iPhone 15", Description = "The new iPhone 15 is out and it's the best phone ever", DatePublished = "2022-02-06", LectureTime = 3, Author = "Tom Smith" };
+            ArticleEntity a3 = new ArticleEntity { Title = "M&M's new recipe", Description = "M&M's new recipe is out and it's the best chocolate ever", DatePublished = "2022-02-06", LectureTime = 1, Author = "M&M's Red" };
 
-            context.Add(a1);
-            context.Add(a2);
-            context.Add(a3);
+            context.ArticleSet.Add(a1);
+            context.ArticleSet.Add(a2);
+            context.ArticleSet.Add(a3);
 
             context.SaveChanges();
 
@@ -52,9 +51,9 @@ public class ArticleDB_Tests
             ArticleEntity a1 = new ArticleEntity { Id = 1, Title = "Breaking News Elisabeth 2 Died", Description = "The queen of England died today at the age of 95", DatePublished = "2022-02-06", LectureTime = 2, Author = "Tom Smith" };
             ArticleEntity a2 = new ArticleEntity { Id = 2, Title = "The new iPhone 15", Description = "The new iPhone 15 is out and it's the best phone ever", DatePublished = "2022-02-06", LectureTime = 3, Author = "Tom Smith" };
             ArticleEntity a3 = new ArticleEntity { Id = 3, Title = "M&M's new recipe", Description = "M&M's new recipe is out and it's the best chocolate ever", DatePublished = "2022-02-06", LectureTime = 1, Author = "M&M's Red" };
-            context.Add(a1);
-            context.Add(a2);
-            context.Add(a3);
+            context.ArticleSet.Add(a1);
+            context.ArticleSet.Add(a2);
+            context.ArticleSet.Add(a3);
 
             context.SaveChanges();
 

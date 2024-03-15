@@ -33,8 +33,6 @@ namespace DbContextLib.Migrations
                 name: "UserSet",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
                     Pseudo = table.Column<string>(type: "TEXT", nullable: false),
                     Mdp = table.Column<string>(type: "TEXT", nullable: false),
                     Nom = table.Column<string>(type: "TEXT", nullable: false),
@@ -44,19 +42,19 @@ namespace DbContextLib.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserSet", x => x.Id);
+                    table.PrimaryKey("PK_UserSet", x => x.Pseudo);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ArticleUserSet",
                 columns: table => new
                 {
-                    UserEntityId = table.Column<long>(type: "INTEGER", nullable: false),
+                    UserEntityPseudo = table.Column<string>(type: "TEXT", nullable: false),
                     ArticleEntityId = table.Column<long>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArticleUserSet", x => new { x.ArticleEntityId, x.UserEntityId });
+                    table.PrimaryKey("PK_ArticleUserSet", x => new { x.ArticleEntityId, x.UserEntityPseudo });
                     table.ForeignKey(
                         name: "FK_ArticleUserSet_ArticleSet_ArticleEntityId",
                         column: x => x.ArticleEntityId,
@@ -64,10 +62,10 @@ namespace DbContextLib.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ArticleUserSet_UserSet_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_ArticleUserSet_UserSet_UserEntityPseudo",
+                        column: x => x.UserEntityPseudo,
                         principalTable: "UserSet",
-                        principalColumn: "Id",
+                        principalColumn: "Pseudo",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -80,17 +78,16 @@ namespace DbContextLib.Migrations
                     Theme = table.Column<string>(type: "TEXT", nullable: false),
                     DatePublication = table.Column<string>(type: "TEXT", nullable: false),
                     Link = table.Column<string>(type: "TEXT", nullable: false),
-                    Pseudo = table.Column<string>(type: "TEXT", nullable: false),
-                    UserEntityId = table.Column<long>(type: "INTEGER", nullable: false)
+                    UserEntityPseudo = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FormSet", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FormSet_UserSet_UserEntityId",
-                        column: x => x.UserEntityId,
+                        name: "FK_FormSet_UserSet_UserEntityPseudo",
+                        column: x => x.UserEntityPseudo,
                         principalTable: "UserSet",
-                        principalColumn: "Id",
+                        principalColumn: "Pseudo",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -106,47 +103,47 @@ namespace DbContextLib.Migrations
 
             migrationBuilder.InsertData(
                 table: "UserSet",
-                columns: new[] { "Id", "Mail", "Mdp", "Nom", "Prenom", "Pseudo", "Role" },
+                columns: new[] { "Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role" },
                 values: new object[,]
                 {
-                    { 1L, "tony@gmail.com", "1234", "Fages", "Tony", "TonyF", "Admin" },
-                    { 2L, "tom@mail.com", "1234", "Smith", "Tom", "TomS", "User" },
-                    { 3L, "M&M#mail.com", "1234", "M&M's", "Red", "RedM", "Modérator" },
-                    { 4L, "ShaCasca@gmail.com", "1234", "Cascarra", "Cascarra", "Sha", "Admin" },
-                    { 5L, "", "1234", "Sillard", "Noa", "NoaSil", "Admin" }
+                    { "NoaSil", "", "1234", "Sillard", "Noa", "Admin" },
+                    { "RedM", "M&M#mail.com", "1234", "M&M's", "Red", "Modérator" },
+                    { "Sha", "ShaCasca@gmail.com", "1234", "Cascarra", "Cascarra", "Admin" },
+                    { "TomS", "tom@mail.com", "1234", "Smith", "Tom", "User" },
+                    { "TonyF", "tony@gmail.com", "1234", "Fages", "Tony", "Admin" }
                 });
 
             migrationBuilder.InsertData(
                 table: "ArticleUserSet",
-                columns: new[] { "ArticleEntityId", "UserEntityId" },
+                columns: new[] { "ArticleEntityId", "UserEntityPseudo" },
                 values: new object[,]
                 {
-                    { 1L, 1L },
-                    { 2L, 2L },
-                    { 2L, 3L },
-                    { 3L, 1L },
-                    { 3L, 3L }
+                    { 1L, "TonyF" },
+                    { 2L, "NoaSil" },
+                    { 2L, "TomS" },
+                    { 3L, "RedM" },
+                    { 3L, "Sha" }
                 });
 
             migrationBuilder.InsertData(
                 table: "FormSet",
-                columns: new[] { "Id", "DatePublication", "Link", "Pseudo", "Theme", "UserEntityId" },
+                columns: new[] { "Id", "DatePublication", "Link", "Theme", "UserEntityPseudo" },
                 values: new object[,]
                 {
-                    { 1L, "Form 1 Description", "hhtp://form1.com", "Form 1", "", 1L },
-                    { 2L, "Form 2 Description", "hhtp://form2.com", "Form 2", "", 2L },
-                    { 3L, "Form 3 Description", "hhtp://form3.com", "Form 3", "", 3L }
+                    { 1L, "Form 1 Description", "hhtp://form1.com", "", "Sha" },
+                    { 2L, "Form 2 Description", "hhtp://form2.com", "", "Sha" },
+                    { 3L, "Form 3 Description", "hhtp://form3.com", "", "Sha" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ArticleUserSet_UserEntityId",
+                name: "IX_ArticleUserSet_UserEntityPseudo",
                 table: "ArticleUserSet",
-                column: "UserEntityId");
+                column: "UserEntityPseudo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FormSet_UserEntityId",
+                name: "IX_FormSet_UserEntityPseudo",
                 table: "FormSet",
-                column: "UserEntityId");
+                column: "UserEntityPseudo");
         }
 
         /// <inheritdoc />
