@@ -33,7 +33,7 @@ steps:
       sonar_token:
         from_secret: SECRET_SONAR_LOGIN # Secret de Drone
       project_key: Verax_API_EF
-      coverage_exclusions: "TestsUnitaires/**"
+      coverage_exclusions: "Unit_Test_EF/**","API_Unit_Test/**"
     commands:
       - cd Verax_API_EF/
       - cd Verax_API_EF/
