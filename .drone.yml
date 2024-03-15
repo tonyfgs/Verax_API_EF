@@ -31,7 +31,7 @@ steps:
     environment:
       sonar_host: https://codefirst.iut.uca.fr/sonar/
       sonar_token:
-        from_secret: SECRET_SONAR_LOGIN
+        from_secret: SECRET_SONAR_LOGIN # Secret de Drone
       project_key: Verax_API_EF
       coverage_exclusions: "TestsUnitaires/**"
     commands:
