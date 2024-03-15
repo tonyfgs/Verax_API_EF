@@ -1,3 +1,4 @@
+using API_Mapping;
 using API_Services;
 using Microsoft.AspNetCore.Mvc;
 using Model;
@@ -10,53 +11,117 @@ namespace API.Controllers
     public class ArticleController : ControllerBase
     {
         
-        private readonly IArticleService _articleService;
+        //private readonly IArticleService _articleService;
+        private readonly IDataManager _dataManager;
+        private readonly ILogger<ArticleController> _logger;
         
-        public ArticleController(IArticleService articleService)
+        public ArticleController(IDataManager dataManager, ILogger<ArticleController> logger)
         {
-            _articleService = articleService;
+            this._dataManager = dataManager;
+            this._logger = logger;
         }
         
+        [Route("/articles")]
         [HttpGet]
-        public async Task<IActionResult> GetAllArticles()
+        public async Task<IActionResult> GetAllArticles([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] ArticleOrderCriteria orderCriterium = ArticleOrderCriteria.None)
         {
-            var result = await _articleService.GetAllArticles();
-            if (result == null)
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllArticles), index, count, orderCriterium);
+            try 
             {
-                return NotFound();
+                var result = (await _dataManager.ArticleService.GetAllArticles(index, count, orderCriterium)).Select(a => a.ToDTO());
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                return Ok(result);
             }
-            return Ok(result);
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
         [HttpGet("/article/{id}")]
-        public async Task<Article?> GetArticleById(int id)
+        public async Task<IActionResult> GetArticleById(int id)
         {
-            var result =  await _articleService.GetArticleById(id);
-            if (result == null)
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetArticleById), id);
+            try 
             {
-                return null;
+                var result = (await _dataManager.ArticleService.GetArticleById(id)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"Article ID {id} not found");
+                }
+                return Ok(result);
             }
-            return result;
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
         
         
         [HttpPost("/article")]
-        public async Task<Article?> CreateArticle(long id, string title, string description, string author, string date, int lectureTime)
+        public async Task<IActionResult> CreateArticle(Article article)
         {
-            return await _articleService.CreateArticle(id, title, description, author, date, lectureTime);
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(CreateArticle), article);
+            try 
+            {
+                var result = (await _dataManager.ArticleService.CreateArticle(article)).ToDTO();
+                if (result == null)
+                {
+                    return BadRequest($"Article not created");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
 
         [HttpDelete("/article/{id}")]
-        public async Task<Article?> DeleteArticle(long id)
+        public async Task<IActionResult> DeleteArticle(long id)
         {
-            return await _articleService.DeleteArticle(id);
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteArticle), id);
+            try 
+            {
+                var result = await _dataManager.ArticleService.DeleteArticle(id);
+                if (result == null)
+                {
+                    return NotFound($"Article ID {id} not found");
+                }
+                return Ok(result.ToDTO());
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
     
         [HttpPut("/article/{id}")]
-        public async Task<bool> UpdateArticle(long id, Article? a)
+        public async Task<IActionResult> UpdateArticle(long id, Article? a)
         {
-            return await _articleService.UpdateArticle(id, a); 
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticle), id, a);
+            try 
+            {
+                var result = (await _dataManager.ArticleService.UpdateArticle(id, a)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"Article ID {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
         

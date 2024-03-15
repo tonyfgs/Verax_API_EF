@@ -11,13 +11,33 @@ public class DbManagerFormulaire : IFormulaireService
     private readonly LibraryContext _context;
 
     public DbManagerFormulaire(LibraryContext context)
-    {
-        _context = context;
-    }
+        => this._context = context;
 
-    public async Task<IEnumerable<Formulaire?>> GetAllForm()
+    public async Task<IEnumerable<Formulaire?>> GetAllForm(int index, int count, FormOrderCriteria orderCriteria)
     {
-        return await Task.FromResult(_context.FormSet.Select(f => f.ToModel()).AsEnumerable());
+        List<Formulaire> formulaireList = new List<Formulaire>();
+        switch (orderCriteria)
+        {
+            case FormOrderCriteria.None:
+                formulaireList = _context.FormSet.Skip(index * count).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByTheme:
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.Theme).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByLien:
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.Link).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByDate:
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.DatePublication).Select(f => f.ToModel()).ToList();
+                break;
+            case FormOrderCriteria.ByPseudo:
+                formulaireList = _context.FormSet.Skip(index * count).OrderBy(f => f.UserEntityPseudo).Select(f => f.ToModel()).ToList();
+                break;
+            default:
+                formulaireList = _context.FormSet.Skip(index * count).Select(f => f.ToModel()).ToList();
+                break;
+        }
+        return await Task.FromResult(formulaireList.AsEnumerable());
     }
 
     public async Task<Formulaire?> GetById(long id)
@@ -32,33 +52,38 @@ public class DbManagerFormulaire : IFormulaireService
         var entity = new FormEntity()
         {
             Id = formulaire.Id,
-            Pseudo = formulaire.Pseudo,
+            Link = formulaire.Lien,
             Theme = formulaire.Theme,
-            DatePublication = formulaire.Date
+            DatePublication = formulaire.Date,
+            UserEntityPseudo = formulaire.UserPseudo
         };
         
         _context.FormSet.Add(entity);
-        await _context.SaveChangesAsync();
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
         return entity.ToModel();
     }
 
-    public async Task<bool> DeleteForm(long id)
+    public async Task<Formulaire?> DeleteForm(long id)
     {
         var entity = _context.FormSet.FirstOrDefault(f => f.Id == id);
-        if (entity == null) return false;
+        if (entity == null) return Task.FromResult<Formulaire?>(null).Result;
         _context.FormSet.Remove(entity);
-        await _context.SaveChangesAsync();
-        return true;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
+        return entity.ToModel();
     }
 
-    public async Task<bool> UpdateForm(long id, Formulaire formulaire)
+    public async Task<Formulaire?> UpdateForm(long id, Formulaire formulaire)
     {
         var entity = _context.FormSet.FirstOrDefault(f => f.Id == id);
-        if (entity == null) return false;
-        entity.Pseudo = formulaire.Pseudo;
+        if (entity == null) return Task.FromResult<Formulaire?>(null).Result;
         entity.Theme = formulaire.Theme;
         entity.DatePublication = formulaire.Date;
-        await _context.SaveChangesAsync();
-        return true;
+        entity.Link = formulaire.Lien;
+        entity.UserEntityPseudo = formulaire.UserPseudo;
+        var result = await _context.SaveChangesAsync();
+        if (result == 0) return await Task.FromResult<Formulaire?>(null);
+        return entity.ToModel();
     }
 }

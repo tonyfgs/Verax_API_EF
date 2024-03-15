@@ -4,6 +4,7 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using API_Mapping;
 
 namespace API.Controllers
 {
@@ -11,41 +12,118 @@ namespace API.Controllers
     [ApiController]
     public class FormulaireController : ControllerBase
     {
-        private readonly IFormulaireService _form;
+        //private readonly IFormulaireService _form;
+        private readonly IDataManager _dataManager;
+        private readonly ILogger<FormulaireController> _logger;
 
-        public FormulaireController(IFormulaireService iform)
+        public FormulaireController(IDataManager dataManager, ILogger<FormulaireController> logger)
         {
-            this._form = iform;
+            this._dataManager = dataManager;
+            this._logger = logger;
         }
 
-        [HttpGet("/forms/{id}")]
-        public Task<IEnumerable<Formulaire?>> GetAllForm()
+        [HttpGet("/formulaires")]
+        public async Task<IActionResult> GetAllForm([FromQuery] int index = 0, [FromQuery] int count = 10, [FromQuery] FormOrderCriteria orderCriteria = FormOrderCriteria.None)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllForm), index, count, orderCriteria);
+            try
+            {
+                var result = (await _dataManager.FormulaireService.GetAllForm(index, count, orderCriteria)).Select(f => f.ToDTO());
+                if (result == null)
+                {
+                    return NotFound($"No form found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
+            
         }
         
-        [HttpGet("{id}")]
-        public Task<Formulaire?> GetById(long id)
+        [HttpGet("/formulaire/{id}")]
+        public async Task<IActionResult> GetById(long id)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetById), id);
+            try
+            {
+                var result = (await _dataManager.FormulaireService.GetById(id)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"form ID {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
+           
+            
         }
         
-        [HttpPost]
-        public Task<Formulaire?> CreateForm(Formulaire formulaire)
+        [HttpPost ("/formulaire")]
+        public async Task<IActionResult> CreateForm(Formulaire formulaire)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(CreateForm), formulaire);
+            try
+            {
+                var result = (await _dataManager.FormulaireService.CreateForm(formulaire)).ToDTO();
+                if (result == null)
+                {
+                    return BadRequest($"Form Id {formulaire.Id} already exists");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
-        [HttpDelete("{id}")]
-        public Task<bool> DeleteForm(long id)
+        [HttpDelete("/formulaire/{id}")]
+        public async Task<IActionResult> DeleteForm(long id)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(DeleteForm), id);
+            try
+            {
+                var result = (await _dataManager.FormulaireService.DeleteForm(id)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"Form Id {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
         
-        [HttpPut("{id}")]
-        public Task<bool> UpdateForm(long id, Formulaire formulaire)
+        [HttpPut("/formulaire/{id}")]
+        public async Task<IActionResult> UpdateForm(long id, Formulaire formulaire)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateForm), formulaire);
+
+            try
+            {
+                var result = (await _dataManager.FormulaireService.UpdateForm(id, formulaire)).ToDTO();
+                if (result == null)
+                {
+                    return NotFound($"form Id {id} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception error)
+            {
+                _logger.LogError(error.Message);
+                return BadRequest(error.Message);
+            }
         }
     }
 }

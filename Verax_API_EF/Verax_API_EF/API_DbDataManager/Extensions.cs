@@ -26,10 +26,10 @@ public static class Extensions
     => new User{ Pseudo = user.Pseudo, Mdp = user.Mdp, Prenom = user.Prenom, Nom = user.Nom, Mail = user.Mail, Role = user.Role};
     
     public static FormEntity ToEntity(this Formulaire form)
-    => new FormEntity{ Id = form.Id, Pseudo = form.Pseudo, Theme = form.Theme, Link = form.Lien};
+    => new FormEntity{ Id = form.Id, UserEntityPseudo = form.UserPseudo, Theme = form.Theme, Link = form.Lien};
     
     public static Formulaire ToModel(this FormEntity form)
-    => new Formulaire{ Id = form.Id, Pseudo = form.Pseudo, Theme = form.Theme, Lien = form.Link};
+    => new Formulaire{ Id = form.Id, UserPseudo = form.UserEntityPseudo, Theme = form.Theme, Lien = form.Link};
     
 
 }

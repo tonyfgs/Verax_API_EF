@@ -21,11 +21,13 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\API_DbDataManager\API_DbDataManager.csproj" />
+      <ProjectReference Include="..\API_Mapping\API_Mapping.csproj" />
       <ProjectReference Include="..\API_Services\API_Services.csproj" />
       <ProjectReference Include="..\StubbedContextLib\StubbedContextLib.csproj" />
     </ItemGroup>

@@ -2,7 +2,7 @@ namespace Model;
 
 public class Article
 {
-    public long Id { get; set; }
+    public long Id;
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string DatePublished { get; set; } = string.Empty;

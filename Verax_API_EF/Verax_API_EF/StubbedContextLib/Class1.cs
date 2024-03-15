@@ -45,16 +45,16 @@ public class StubbedContext : LibraryContext
         modelBuilder.Entity<UserEntity>().HasData(
             new UserEntity
             {
-                Id = 1, Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
+                 Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
             },
             new UserEntity
             {
-                Id = 2, Nom = "Smith", Prenom = "Tom", Pseudo = "TomS", Mail = "tom@mail.com", Mdp = "1234",
+                Nom = "Smith", Prenom = "Tom", Pseudo = "TomS", Mail = "tom@mail.com", Mdp = "1234",
                 Role = "User"
             },
             new UserEntity
             {
-                Id = 3, Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
+                 Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
             }
         );
         
@@ -62,27 +62,27 @@ public class StubbedContext : LibraryContext
             new ArticleUserEntity
             {
                 ArticleEntityId = 1,
-                UserEntityId = 1
+                UserEntityPseudo = "Sha"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
-                UserEntityId = 2
+                UserEntityPseudo = "Sha"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 3,
-                UserEntityId = 3
+                UserEntityPseudo = "Sha"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 3,
-                UserEntityId = 1
+                UserEntityPseudo = "Sha"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
-                UserEntityId = 3
+                UserEntityPseudo = "Sha"
             }
         );
     }

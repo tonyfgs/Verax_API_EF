@@ -2,6 +2,7 @@ using API_Services;
 using DbContextLib;
 using DbDataManager;
 using Microsoft.EntityFrameworkCore;
+using Model;
 using StubbedContextLib;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,9 +21,9 @@ builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseSqlite("Data Source=Entity_FrameWork.Article.db");
     
 });
-builder.Services.AddScoped<IArticleService, DbManagerArticle>();
-builder.Services.AddScoped<IUserService, DbManagerUser>();
-builder.Services.AddScoped<IFormulaireService, DbManagerFormulaire>();
+builder.Services.AddScoped<IDataManager, DbManager>();
+
+
 
 var app = builder.Build();
 
@@ -38,7 +39,7 @@ app.MapControllers();
 
 using var scoped = app.Services.CreateScope();
 var libraryContext = scoped.ServiceProvider.GetService<LibraryContext>();
-//libraryContext.Database.EnsureCreated();
+//libraryContext.Database.EnsureCreated(); 
 libraryContext.Database.Migrate();
 app.Run();
 
