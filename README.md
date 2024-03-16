@@ -67,7 +67,7 @@ dotnet ef migrations add mrg1 --project DbContextLib
 <a href="https://codefirst.iut.uca.fr/git/louis.laborie"  style="margin-right: 20px;">
   <img src="img/Louis.png" width="50" height="50" title="Louis Laborie" alt="Louis Laborie"/>
 </a>
-<a href="https://codefirst.iut.uca.fr/git/tony.fages style="margin-right: 20px;">
+<a href="https://codefirst.iut.uca.fr/git/tony.fages" style="margin-right: 20px;">
   <img src="img/Tony.png" width="50" height="50" title="Tony Fages" alt="Tony Fages"/>
 </a>
 <p>
