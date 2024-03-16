@@ -4,7 +4,7 @@ using Moq;
 
 namespace API_Unit_Test;
 
-public class UnitTest_Article
+public class IArticleServiceTests
 {
     
     

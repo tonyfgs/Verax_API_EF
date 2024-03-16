@@ -5,7 +5,7 @@ using Moq;
 
 namespace API_Unit_Test;
 
-public class UnitTest_User
+public class IUserServiceTests
 {
 
     [Fact]
