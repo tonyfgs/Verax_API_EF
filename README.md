@@ -29,10 +29,10 @@ Bienvenue sur le projet `Verax_API_EF`, une API RESTful développée spécifique
 
 ## Installation
 
-1. **Cloner le projet** : Exécutez `git clone https://github.com/votre/repo.git` pour cloner le dépôt dans votre espace de travail local.
-2. **Configurer la base de données** : Assurez-vous que votre système de gestion de base de données est configuré et accessible. Modifiez le fichier de configuration de l'application pour pointer vers votre instance de base de données.
-3. **Restaurer les dépendances** : Ouvrez un terminal dans le dossier du projet et exécutez `dotnet restore` pour restaurer les dépendances nécessaires.
-4. **Lancer l'application** : Exécutez `dotnet run` dans le dossier contenant le fichier projet (`.csproj`) pour démarrer l'API.
+1. **Cloner le projet** : Exécutez `git clone https://codefirst.iut.uca.fr/git/Verax/Verax_API_EF.git` pour cloner le dépôt dans votre espace de travail local.
+2. Ouvrez le fichier `Verax_API_EF.sln` avec votre IDE.
+3. Restaurez les packages nécessaires.
+4. Lancez le projet depuis IDE.
 
 ## Utilisation
 
@@ -62,6 +62,7 @@ dotnet ef migrations add mrg1 --project DbContextLib
 
 
 ## Equipe de développement
+<p align="center" >
 
 <a href="https://codefirst.iut.uca.fr/git/louis.laborie"  style="margin-right: 20px;">
   <img src="img/Louis.png" width="50" height="50" title="Louis Laborie" alt="Louis Laborie"/>
@@ -69,4 +70,5 @@ dotnet ef migrations add mrg1 --project DbContextLib
 <a href="https://codefirst.iut.uca.fr/git/tony.fages style="margin-right: 20px;">
   <img src="img/Tony.png" width="50" height="50" title="Tony Fages" alt="Tony Fages"/>
 </a>
+<p>
 
