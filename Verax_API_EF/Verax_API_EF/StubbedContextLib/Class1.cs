@@ -10,7 +10,7 @@ public class StubbedContext : LibraryContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<ArticleEntity>().HasData(
+       modelBuilder.Entity<ArticleEntity>().HasData(
             new ArticleEntity
             {
                 Id = 1,
@@ -38,14 +38,14 @@ public class StubbedContext : LibraryContext
                 Description = "M&M's new recipe is out and it's the best chocolate ever",
                 DatePublished = "2022-02-06",
                 LectureTime = 1,
-                Author = "M&M's Red" 
+                Author = "M&M's Red"
             }
         );
 
         modelBuilder.Entity<UserEntity>().HasData(
             new UserEntity
             {
-                 Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
+                Nom = "Fages", Prenom = "Tony", Pseudo = "TonyF", Mail = "tony@gmail.com", Mdp = "1234", Role = "Admin"
             },
             new UserEntity
             {
@@ -55,19 +55,27 @@ public class StubbedContext : LibraryContext
             new UserEntity
             {
                  Nom = "M&M's", Prenom = "Red", Pseudo = "RedM", Mail = "M&M#mail.com", Mdp = "1234", Role = "Modérator"
+            },
+            new UserEntity
+            {
+                 Nom = "Cascarra", Prenom = "Cascarra", Pseudo = "Sha",   Mail = "ShaCasca@gmail.com", Mdp = "1234", Role = "Admin"
+            },
+            new UserEntity
+            {
+                Nom = "Sillard", Prenom = "Noa", Pseudo = "NoaSil", Mail = "", Mdp = "1234", Role = "Admin"
             }
         );
-        
+
         modelBuilder.Entity<ArticleUserEntity>().HasData(
             new ArticleUserEntity
             {
                 ArticleEntityId = 1,
-                UserEntityPseudo = "Sha"
+                UserEntityPseudo = "TonyF"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
-                UserEntityPseudo = "Sha"
+                UserEntityPseudo = "NoaSil"
             },
             new ArticleUserEntity
             {
@@ -77,11 +85,38 @@ public class StubbedContext : LibraryContext
             new ArticleUserEntity
             {
                 ArticleEntityId = 3,
-                UserEntityPseudo = "Sha"
+                UserEntityPseudo = "RedM"
             },
             new ArticleUserEntity
             {
                 ArticleEntityId = 2,
+                UserEntityPseudo = "TomS"
+            }
+        );
+
+        modelBuilder.Entity<FormEntity>().HasData(
+            new FormEntity
+            {
+                Id = 1,
+                Theme = "Form 1 Theme",
+                DatePublication = "Form 1 Description",
+                Link = "hhtp://form1.com",
+                UserEntityPseudo = "Sha"
+            },
+            new FormEntity
+            {
+                Id = 2,
+                Theme = "Form 2 Theme",
+                DatePublication = "Form 2 Description",
+                Link = "hhtp://form2.com",
+                UserEntityPseudo = "Sha"
+            },
+            new FormEntity
+            {
+                Id = 3,
+                Theme = "Form 3 Theme",
+                DatePublication = "Form 3 Description",
+                Link = "hhtp://form3.com",
                 UserEntityPseudo = "Sha"
             }
         );

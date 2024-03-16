@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContextLib.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240312155559_mrg1")]
+    [Migration("20240316170807_mrg1")]
     partial class mrg1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
 
             modelBuilder.Entity("Entities.ArticleEntity", b =>
                 {
@@ -154,7 +154,7 @@ namespace DbContextLib.Migrations
                             Id = 1L,
                             DatePublication = "Form 1 Description",
                             Link = "hhtp://form1.com",
-                            Theme = "",
+                            Theme = "Form 1 Theme",
                             UserEntityPseudo = "Sha"
                         },
                         new
@@ -162,7 +162,7 @@ namespace DbContextLib.Migrations
                             Id = 2L,
                             DatePublication = "Form 2 Description",
                             Link = "hhtp://form2.com",
-                            Theme = "",
+                            Theme = "Form 2 Theme",
                             UserEntityPseudo = "Sha"
                         },
                         new
@@ -170,7 +170,7 @@ namespace DbContextLib.Migrations
                             Id = 3L,
                             DatePublication = "Form 3 Description",
                             Link = "hhtp://form3.com",
-                            Theme = "",
+                            Theme = "Form 3 Theme",
                             UserEntityPseudo = "Sha"
                         });
                 });

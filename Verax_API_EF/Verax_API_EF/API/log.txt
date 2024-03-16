@@ -155,3 +155,186 @@ info: 03/16/2024 17:20:23.686 RelationalEventId.CommandExecuted[20101] (Microsof
       Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
       FROM "ArticleSet" AS "a"
+info: 03/16/2024 18:08:18.178 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/16/2024 18:08:18.183 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/16/2024 18:08:18.190 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/16/2024 18:08:18.200 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20240316170807_mrg1'.
+fail: 03/16/2024 18:08:18.239 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ArticleSet" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_ArticleSet" PRIMARY KEY AUTOINCREMENT,
+          "Title" TEXT NOT NULL,
+          "Description" TEXT NOT NULL,
+          "DatePublished" TEXT NOT NULL,
+          "LectureTime" INTEGER NOT NULL,
+          "Author" TEXT NOT NULL
+      );
+info: 03/16/2024 18:09:26.167 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: 03/16/2024 18:09:26.205 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: 03/16/2024 18:09:26.209 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/16/2024 18:09:26.211 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/16/2024 18:09:26.217 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20240316170807_mrg1'.
+info: 03/16/2024 18:09:26.240 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ArticleSet" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_ArticleSet" PRIMARY KEY AUTOINCREMENT,
+          "Title" TEXT NOT NULL,
+          "Description" TEXT NOT NULL,
+          "DatePublished" TEXT NOT NULL,
+          "LectureTime" INTEGER NOT NULL,
+          "Author" TEXT NOT NULL
+      );
+info: 03/16/2024 18:09:26.240 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UserSet" (
+          "Pseudo" TEXT NOT NULL CONSTRAINT "PK_UserSet" PRIMARY KEY,
+          "Mdp" TEXT NOT NULL,
+          "Nom" TEXT NOT NULL,
+          "Prenom" TEXT NOT NULL,
+          "Mail" TEXT NOT NULL,
+          "Role" TEXT NOT NULL
+      );
+info: 03/16/2024 18:09:26.240 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ArticleUserSet" (
+          "UserEntityPseudo" TEXT NOT NULL,
+          "ArticleEntityId" INTEGER NOT NULL,
+          CONSTRAINT "PK_ArticleUserSet" PRIMARY KEY ("ArticleEntityId", "UserEntityPseudo"),
+          CONSTRAINT "FK_ArticleUserSet_ArticleSet_ArticleEntityId" FOREIGN KEY ("ArticleEntityId") REFERENCES "ArticleSet" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_ArticleUserSet_UserSet_UserEntityPseudo" FOREIGN KEY ("UserEntityPseudo") REFERENCES "UserSet" ("Pseudo") ON DELETE CASCADE
+      );
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "FormSet" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_FormSet" PRIMARY KEY AUTOINCREMENT,
+          "Theme" TEXT NOT NULL,
+          "DatePublication" TEXT NOT NULL,
+          "Link" TEXT NOT NULL,
+          "UserEntityPseudo" TEXT NOT NULL,
+          CONSTRAINT "FK_FormSet_UserSet_UserEntityPseudo" FOREIGN KEY ("UserEntityPseudo") REFERENCES "UserSet" ("Pseudo") ON DELETE CASCADE
+      );
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (1, 'Tom Smith', '2022-02-06', 'The queen of England died today at the age of 95', 2, 'Breaking News Elisabeth 2 Died');
+      SELECT changes();
+      
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (2, 'Tom Smith', '2022-02-06', 'The new iPhone 15 is out and it''s the best phone ever', 3, 'The new iPhone 15');
+      SELECT changes();
+      
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (3, 'M&M''s Red', '2022-02-06', 'M&M''s new recipe is out and it''s the best chocolate ever', 1, 'M&M''s new recipe');
+      SELECT changes();
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('NoaSil', '', '1234', 'Sillard', 'Noa', 'Admin');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('RedM', 'M&M#mail.com', '1234', 'M&M''s', 'Red', 'Modérator');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('Sha', 'ShaCasca@gmail.com', '1234', 'Cascarra', 'Cascarra', 'Admin');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('TomS', 'tom@mail.com', '1234', 'Smith', 'Tom', 'User');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('TonyF', 'tony@gmail.com', '1234', 'Fages', 'Tony', 'Admin');
+      SELECT changes();
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (1, 'TonyF');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (2, 'NoaSil');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (2, 'TomS');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (3, 'RedM');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (3, 'Sha');
+      SELECT changes();
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (1, 'Form 1 Description', 'hhtp://form1.com', 'Form 1 Theme', 'Sha');
+      SELECT changes();
+      
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (2, 'Form 2 Description', 'hhtp://form2.com', 'Form 2 Theme', 'Sha');
+      SELECT changes();
+      
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (3, 'Form 3 Description', 'hhtp://form3.com', 'Form 3 Theme', 'Sha');
+      SELECT changes();
+info: 03/16/2024 18:09:26.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_ArticleUserSet_UserEntityPseudo" ON "ArticleUserSet" ("UserEntityPseudo");
+info: 03/16/2024 18:09:26.242 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_FormSet_UserEntityPseudo" ON "FormSet" ("UserEntityPseudo");
+info: 03/16/2024 18:09:26.242 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20240316170807_mrg1', '8.0.3');
+info: 03/16/2024 18:12:28.123 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/16/2024 18:12:28.127 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/16/2024 18:12:28.134 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/16/2024 18:12:28.142 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/16/2024 18:12:33.839 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+warn: 03/16/2024 18:12:40.191 CoreEventId.RowLimitingOperationWithoutOrderByWarning[10102] (Microsoft.EntityFrameworkCore.Query) 
+      The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+info: 03/16/2024 18:12:40.203 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      LIMIT -1 OFFSET @__p_0

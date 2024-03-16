@@ -130,9 +130,9 @@ namespace DbContextLib.Migrations
                 columns: new[] { "Id", "DatePublication", "Link", "Theme", "UserEntityPseudo" },
                 values: new object[,]
                 {
-                    { 1L, "Form 1 Description", "hhtp://form1.com", "", "Sha" },
-                    { 2L, "Form 2 Description", "hhtp://form2.com", "", "Sha" },
-                    { 3L, "Form 3 Description", "hhtp://form3.com", "", "Sha" }
+                    { 1L, "Form 1 Description", "hhtp://form1.com", "Form 1 Theme", "Sha" },
+                    { 2L, "Form 2 Description", "hhtp://form2.com", "Form 2 Theme", "Sha" },
+                    { 3L, "Form 3 Description", "hhtp://form3.com", "Form 3 Theme", "Sha" }
                 });
 
             migrationBuilder.CreateIndex(

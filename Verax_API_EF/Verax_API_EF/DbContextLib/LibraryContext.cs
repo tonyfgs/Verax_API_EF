@@ -147,6 +147,7 @@ public class LibraryContext : DbContext
             new FormEntity
             {
                 Id = 1,
+                Theme = "Form 1 Theme",
                 DatePublication = "Form 1 Description",
                 Link = "hhtp://form1.com",
                 UserEntityPseudo = "Sha"
@@ -154,6 +155,7 @@ public class LibraryContext : DbContext
             new FormEntity
             {
                 Id = 2,
+                Theme = "Form 2 Theme",
                 DatePublication = "Form 2 Description",
                 Link = "hhtp://form2.com",
                 UserEntityPseudo = "Sha"
@@ -161,11 +163,13 @@ public class LibraryContext : DbContext
             new FormEntity
             {
                 Id = 3,
+                Theme = "Form 3 Theme",
                 DatePublication = "Form 3 Description",
                 Link = "hhtp://form3.com",
                 UserEntityPseudo = "Sha"
             }
         );
         */
+        
     }
 }
