@@ -37,7 +37,7 @@ steps:
       - cd Verax_API_EF/
       - cd Verax_API_EF/
       - dotnet restore Verax_API_EF.sln
-      - dotnet sonarscanner begin /k:$${project_key} /d:sonar.host.url=$${sonar_host} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Unit_Test_EF/**","API_Unit_Test/**","API_Tests_Console/**,"Test_Console_EF/**,"DbContextLib/Migrations/**" /d:sonar.login=$${sonar_token} 
+      - dotnet sonarscanner begin /k:$${project_key} /d:sonar.host.url=$${sonar_host} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Unit_Test_EF/**","API_Unit_Test/**","API_Tests_Console/**","Test_Console_EF/**","DbContextLib/Migrations/**","StubbedContextLib/**" /d:sonar.login=$${sonar_token} 
       - dotnet build Verax_API_EF.sln -c Release --no-restore
       - dotnet test Verax_API_EF.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
       - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
