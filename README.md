@@ -52,8 +52,10 @@ Après avoir lancé l'API, elle sera accessible via `http://localhost:5000` par 
  - Lors de la création de la base de données, l'API s'appuie sur une migration incluse dans le projet `DbContextLib`. Si cette migration est absente, l'API ne fonctionnera pas correctement car la base de données sera vide, entraînant ainsi l'absence de données retournées. En cas de non présence de cette migration, vous devrez décommenter les lignes dans le fichier `LibraryContext.cs` du projet `DbContextLib` (aux alentours de la ligne 60), puis exécuter les commandes suivantes :
 
 ```bash
-dotnet ef migrations add mrg1 --project DbContextLib
+dotnet ef migrations add mrg1 --project DbContextLib --context LibraryContext
 ```
+
+PS: N'oubliez pas de supprimer l'ancienne base de données dans le projet API
 
 
 ### Tests Console API
