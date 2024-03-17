@@ -212,15 +212,13 @@ namespace API.Controllers
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticleUser), articleUser);
         try
         {
-            // Retrieve the existing entity
-            var existingEntity = await _dataManager.UserService.GetArticleUser(articleUser.UserEntityPseudo);
+            var existingEntity = (await _dataManager.UserService.GetArticleUser(articleUser.UserEntityPseudo)).Select(a => a.ToDTO());
 
             if (existingEntity == null)
             {
                 return NotFound($"ArticleUser {articleUser.UserEntityPseudo} does not exist");
             }
 
-            // Delete the existing entity
             var deleteResult = await _dataManager.UserService.DeleteArticleUser(articleUser.UserEntityPseudo, oldId);
 
             if (!deleteResult)
@@ -228,7 +226,6 @@ namespace API.Controllers
                 return BadRequest($"Failed to delete ArticleUser {articleUser.UserEntityPseudo}");
             }
 
-            // Create a new entity with the updated values
             var createResult = await _dataManager.UserService.CreateArticleUser(articleUser);
 
             if (createResult == null)

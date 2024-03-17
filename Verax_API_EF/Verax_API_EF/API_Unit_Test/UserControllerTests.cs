@@ -1,9 +1,11 @@
+using API_Mapping;
 using API.Controllers;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Model;
 using Moq;
+using Web_API.Model;
 
 namespace API_Unit_Test;
 
@@ -92,4 +94,48 @@ public class UserControllerTests
 
             Assert.IsType<BadRequestObjectResult>(result);
         }
+        
+        [Fact]
+        public async Task CreateArticleUser_ReturnsOk_WithNewArticleUser()
+        {
+            // Arrange
+            var articleUser = new ArticleUserEntity { UserEntityPseudo = "User1", ArticleEntityId = 1 };
+            _mockDataManager.Setup(m => m.UserService.CreateArticleUser(articleUser)).ReturnsAsync(true);
+
+            // Act
+            var result = await _controller.CreateArticleUser(articleUser);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateArticleUser_ReturnsOk_WhenUpdated()
+        {
+            // Arrange
+            var articleUser = new ArticleUserEntity { UserEntityPseudo = "User1", ArticleEntityId = 2 };
+            _mockDataManager.Setup(m => m.UserService.DeleteArticleUser(It.IsAny<string>(), It.IsAny<long>())).ReturnsAsync(true);
+            _mockDataManager.Setup(m => m.UserService.CreateArticleUser(It.IsAny<ArticleUserEntity>())).ReturnsAsync(true);
+
+            // Act
+            var result = await _controller.UpdateArticleUser(articleUser, 1);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        
+        [Fact]
+        public async Task DeleteArticleUser_ReturnsOk_WhenDeleted()
+        {
+            // Arrange
+            _mockDataManager.Setup(m => m.UserService.DeleteArticleUser(It.IsAny<string>(), It.IsAny<long>())).ReturnsAsync(true);
+
+            // Act
+            var result = await _controller.DeleteArticleUser("User1", 1);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
     }
