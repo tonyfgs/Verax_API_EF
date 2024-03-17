@@ -12,32 +12,32 @@ class Tests_Console
     
     static async Task Main(string[] args)
     {
-        //await TestUser();
-        await TestFormulaire();
+        await TestUser();
+        //await TestFormulaire();
         //await TestArticle();
     }
 
     private static async Task TestFormulaire()
     {
         await TestFormulaireGetAll();
-        //await TestFormulaireGetId();
-        //await TestFormulaireCreate();
-        //await TestFormulaireDelete();
-        //await TestFormulaireUpdate();
+        await TestFormulaireGetId();
+        await TestFormulaireCreate();
+        await TestFormulaireDelete();
+        await TestFormulaireUpdate();
     }
 
     private static async Task TestUser()
     {
-        //await TestUserGetAll();
-        //await TestUserGetId();
+        await TestUserGetAll();
+        await TestUserGetId();
         //await TestUserCreate();
         //await TestUserDelete();
         //await TestUserUpdate();
-        //await TestGetAllArticleUser();
-        //await TestGetArticleByUser();
+        await TestGetAllArticleUser();
+        await TestGetArticleByUser();
         //await TestCreateArticleUser();
         //await TestDeleteArticleUser();
-        //await TestUpdateArticleUser();
+        await TestUpdateArticleUser();
     }
 
 
@@ -109,7 +109,7 @@ class Tests_Console
     {
         try
         {
-            var response = await client.DeleteAsync("http://localhost:5052/article/4");
+            var response = await client.DeleteAsync("http://localhost:5052/article/1");
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine(responseBody);
@@ -339,7 +339,7 @@ class Tests_Console
     {
         try
         {
-            var response = await client.GetAsync("http://localhost:5052/ArticleUsers");
+            var response = await client.GetAsync("http://localhost:5052/user/article/users");
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine(responseBody);
@@ -354,7 +354,7 @@ class Tests_Console
     {
         try
         {
-            var response = await client.GetAsync("http://localhost:5052/user/Sha/article");
+            var response = await client.GetAsync("http://localhost:5052/user/Sha/articles");
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine(responseBody);
@@ -391,7 +391,7 @@ class Tests_Console
     {
         try
         {
-            var response = await client.DeleteAsync("http://localhost:5052/user/Sha/article");
+            var response = await client.DeleteAsync("http://localhost:5052/user/Sha/3");
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine(responseBody);
@@ -408,12 +408,13 @@ class Tests_Console
         {
             var articleUser = new ArticleUserEntity()
             {
-                ArticleEntityId = 1,
+                ArticleEntityId = 2,
                 UserEntityPseudo = "Sha"
             };
+            long oldId = 3;
             var json = JsonSerializer.Serialize(articleUser);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync("http://localhost:5052/user/Sha/article", data);
+            var response = await client.PutAsync($"http://localhost:5052/user/Sha/{oldId}", data);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine(responseBody);

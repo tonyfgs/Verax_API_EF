@@ -338,3 +338,1314 @@ info: 03/16/2024 18:12:40.203 RelationalEventId.CommandExecuted[20101] (Microsof
       SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
       FROM "FormSet" AS "f"
       LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:06:35.547 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:06:35.552 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:06:35.559 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:06:35.569 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:09:26.602 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:09:26.607 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:09:26.614 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:09:26.622 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:09:33.672 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:09:33.766 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:09:33.779 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:09:33.780 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:09:33.781 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:09:33.781 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:10:23.750 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:11:13.381 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:15:03.905 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:18:06.857 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:18:06.861 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:18:06.867 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:18:06.875 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:18:21.836 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:20:19.935 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:20:19.940 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:20:19.946 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:20:19.955 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:20:39.230 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:24:00.175 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:24:00.179 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:24:00.186 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:24:00.194 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:25:22.541 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:25:22.546 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:25:22.554 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:25:22.565 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:25:54.995 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:25:54.999 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:25:55.005 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:25:55.013 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+info: 03/17/2024 10:26:17.656 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__pseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:26:17.691 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:26:17.710 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 5), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:26:17.774 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleUserSet"
+      WHERE "ArticleEntityId" = @p0 AND "UserEntityPseudo" = @p1
+      RETURNING 1;
+info: 03/17/2024 10:26:17.787 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:26:17.811 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (@p0, @p1);
+info: 03/17/2024 10:26:41.636 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 5), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:26:41.637 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleUserSet"
+      WHERE "ArticleEntityId" = @p0 AND "UserEntityPseudo" = @p1
+      RETURNING 1;
+info: 03/17/2024 10:27:17.670 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:27:17.675 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (@p0, @p1);
+info: 03/17/2024 10:27:32.160 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:27:36.615 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:27:36.617 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:27:36.619 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:27:44.516 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:27:44.523 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:27:44.525 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:27:44.525 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:27:44.526 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:27:44.526 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:28:07.587 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 4), @p2='?' (Size = 4), @p3='?' (Size = 4), @p4='?' (Size = 4), @p5='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+info: 03/17/2024 10:28:27.312 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:28:27.317 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "UserSet"
+      WHERE "Pseudo" = @p0
+      RETURNING 1;
+info: 03/17/2024 10:29:02.069 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:29:02.081 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p5='?' (Size = 3), @p0='?' (Size = 3), @p1='?' (Size = 3), @p2='?' (Size = 3), @p3='?' (Size = 2), @p4='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      UPDATE "UserSet" SET "Mail" = @p0, "Mdp" = @p1, "Nom" = @p2, "Prenom" = @p3, "Role" = @p4
+      WHERE "Pseudo" = @p5
+      RETURNING 1;
+info: 03/17/2024 10:35:08.720 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+warn: 03/17/2024 10:35:14.229 CoreEventId.RowLimitingOperationWithoutOrderByWarning[10102] (Microsoft.EntityFrameworkCore.Query) 
+      The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+info: 03/17/2024 10:35:14.243 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:35:26.235 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+fail: 03/17/2024 10:35:26.253 RelationalEventId.CommandError[20102] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Failed executing DbCommand (3ms) [Parameters=[@p4='?' (DbType = Int64), @p0='?' (Size = 6), @p1='?' (Size = 6), @p2='?' (Size = 6), @p3='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      UPDATE "FormSet" SET "DatePublication" = @p0, "Link" = @p1, "Theme" = @p2, "UserEntityPseudo" = @p3
+      WHERE "Id" = @p4
+      RETURNING 1;
+fail: 03/17/2024 10:35:26.271 CoreEventId.SaveChangesFailed[10000] (Microsoft.EntityFrameworkCore.Update) 
+      An exception occurred in the database while saving changes for context type 'DbContextLib.LibraryContext'.
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+       ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+         at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+         at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+         at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+         at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+         at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+info: 03/17/2024 10:35:42.426 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:35:42.429 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p4='?' (DbType = Int64), @p0='?' (Size = 6), @p1='?' (Size = 6), @p2='?' (Size = 6), @p3='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      UPDATE "FormSet" SET "DatePublication" = @p0, "Link" = @p1, "Theme" = @p2, "UserEntityPseudo" = @p3
+      WHERE "Id" = @p4
+      RETURNING 1;
+info: 03/17/2024 10:35:57.470 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:35:57.474 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "FormSet"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: 03/17/2024 10:36:09.805 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:36:14.669 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+warn: 03/17/2024 10:36:19.577 CoreEventId.RowLimitingOperationWithoutOrderByWarning[10102] (Microsoft.EntityFrameworkCore.Query) 
+      The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+info: 03/17/2024 10:36:19.582 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:36:29.931 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 6), @p1='?' (Size = 6), @p2='?' (Size = 6), @p3='?' (DbType = Int32), @p4='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleSet" ("Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: 03/17/2024 10:36:48.875 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:36:48.877 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleSet"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: 03/17/2024 10:37:01.778 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__p_0
+      LIMIT 1
+info: 03/17/2024 10:37:06.754 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+info: 03/17/2024 10:38:18.587 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:38:18.591 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:38:18.597 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:38:18.605 RelationalEventId.MigrationsNotApplied[20405] (Microsoft.EntityFrameworkCore.Migrations) 
+      No migrations were applied. The database is already up to date.
+warn: 03/17/2024 10:38:53.115 CoreEventId.RowLimitingOperationWithoutOrderByWarning[10102] (Microsoft.EntityFrameworkCore.Query) 
+      The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+info: 03/17/2024 10:38:53.182 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:38:53.278 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:38:53.384 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 4), @p2='?' (Size = 4), @p3='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "FormSet" ("DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: 03/17/2024 10:38:53.407 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:38:53.414 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:38:53.418 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (Size = 4), @p1='?' (Size = 3), @p2='?' (Size = 2)], CommandType='Text', CommandTimeout='30']
+      UPDATE "FormSet" SET "DatePublication" = @p0, "Link" = @p1, "Theme" = @p2
+      WHERE "Id" = @p3
+      RETURNING 1;
+info: 03/17/2024 10:39:33.463 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:39:33.479 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:39:33.499 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4), @p1='?' (Size = 4), @p2='?' (Size = 4), @p3='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "FormSet" ("DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: 03/17/2024 10:39:33.502 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+info: 03/17/2024 10:39:33.509 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "FormSet"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: 03/17/2024 10:39:33.516 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."Id", "f"."DatePublication", "f"."Link", "f"."Theme", "f"."UserEntityPseudo"
+      FROM "FormSet" AS "f"
+      WHERE "f"."Id" = @__id_0
+      LIMIT 1
+warn: 03/17/2024 10:41:05.664 CoreEventId.RowLimitingOperationWithoutOrderByWarning[10102] (Microsoft.EntityFrameworkCore.Query) 
+      The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+info: 03/17/2024 10:41:05.667 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:41:05.696 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.409 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:41:45.418 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.426 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:41:45.441 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.444 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.444 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.444 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.445 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.452 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:41:45.455 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:41:45.463 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.566 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:42:09.574 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.577 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:42:09.577 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.577 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.578 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.578 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.578 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.583 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:42:09.584 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.584 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.609 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:09.618 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (@p0, @p1);
+info: 03/17/2024 10:42:20.319 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:42:20.328 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.330 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:42:20.330 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.332 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.332 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.334 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:42:20.334 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.335 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:20.335 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.731 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:42:54.741 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.743 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:42:54.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.745 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.748 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:42:54.748 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.748 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.749 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:42:54.755 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:42:54.755 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleUserSet"
+      WHERE "ArticleEntityId" = @p0 AND "UserEntityPseudo" = @p1
+      RETURNING 1;
+info: 03/17/2024 10:43:13.248 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:43:13.256 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.258 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:43:13.259 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.259 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.259 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.260 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.260 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.262 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:43:13.262 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:43:13.263 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.900 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:45:55.909 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.910 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:45:55.911 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.911 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.911 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.911 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.911 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.913 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:45:55.913 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:45:55.913 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.891 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:47:43.899 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.901 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:47:43.901 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.901 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.901 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.902 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.902 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.903 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:47:43.904 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.904 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.925 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:47:43.925 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.926 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:47:43.926 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:48:20.294 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:48:20.303 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.304 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:48:20.305 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.305 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.305 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.305 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.305 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.307 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:48:20.307 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.307 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:48:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.331 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:20.332 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:48:20.335 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleUserSet"
+      WHERE "ArticleEntityId" = @p0 AND "UserEntityPseudo" = @p1
+      RETURNING 1;
+info: 03/17/2024 10:48:20.336 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.526 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      LIMIT -1 OFFSET @__p_0
+info: 03/17/2024 10:48:54.534 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.536 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+info: 03/17/2024 10:48:54.536 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 6)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.536 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.536 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.537 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__articleUser_UserEntityPseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__articleUser_UserEntityPseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.538 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:48:54.538 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.557 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0
+info: 03/17/2024 10:48:54.557 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__article_ArticleEntityId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."Author", "a"."DatePublished", "a"."Description", "a"."LectureTime", "a"."Title"
+      FROM "ArticleSet" AS "a"
+      WHERE "a"."Id" = @__article_ArticleEntityId_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.558 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3), @__id_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ArticleEntityId", "a"."UserEntityPseudo"
+      FROM "ArticleUserSet" AS "a"
+      WHERE "a"."UserEntityPseudo" = @__pseudo_0 AND "a"."ArticleEntityId" = @__id_1
+      LIMIT 1
+info: 03/17/2024 10:48:54.559 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "ArticleUserSet"
+      WHERE "ArticleEntityId" = @p0 AND "UserEntityPseudo" = @p1
+      RETURNING 1;
+info: 03/17/2024 10:48:54.559 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@__pseudo_0='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Pseudo", "u"."Mail", "u"."Mdp", "u"."Nom", "u"."Prenom", "u"."Role"
+      FROM "UserSet" AS "u"
+      WHERE "u"."Pseudo" = @__pseudo_0
+      LIMIT 1
+info: 03/17/2024 10:48:54.560 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (Size = 3)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (@p0, @p1);
+info: 03/17/2024 10:51:04.747 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: 03/17/2024 10:51:04.788 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: 03/17/2024 10:51:04.792 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: 03/17/2024 10:51:04.793 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: 03/17/2024 10:51:04.801 RelationalEventId.MigrationApplying[20402] (Microsoft.EntityFrameworkCore.Migrations) 
+      Applying migration '20240317095050_mrg1'.
+info: 03/17/2024 10:51:04.827 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ArticleSet" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_ArticleSet" PRIMARY KEY AUTOINCREMENT,
+          "Title" TEXT NOT NULL,
+          "Description" TEXT NOT NULL,
+          "DatePublished" TEXT NOT NULL,
+          "LectureTime" INTEGER NOT NULL,
+          "Author" TEXT NOT NULL
+      );
+info: 03/17/2024 10:51:04.827 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UserSet" (
+          "Pseudo" TEXT NOT NULL CONSTRAINT "PK_UserSet" PRIMARY KEY,
+          "Mdp" TEXT NOT NULL,
+          "Nom" TEXT NOT NULL,
+          "Prenom" TEXT NOT NULL,
+          "Mail" TEXT NOT NULL,
+          "Role" TEXT NOT NULL
+      );
+info: 03/17/2024 10:51:04.827 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ArticleUserSet" (
+          "UserEntityPseudo" TEXT NOT NULL,
+          "ArticleEntityId" INTEGER NOT NULL,
+          CONSTRAINT "PK_ArticleUserSet" PRIMARY KEY ("ArticleEntityId", "UserEntityPseudo"),
+          CONSTRAINT "FK_ArticleUserSet_ArticleSet_ArticleEntityId" FOREIGN KEY ("ArticleEntityId") REFERENCES "ArticleSet" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_ArticleUserSet_UserSet_UserEntityPseudo" FOREIGN KEY ("UserEntityPseudo") REFERENCES "UserSet" ("Pseudo") ON DELETE CASCADE
+      );
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "FormSet" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_FormSet" PRIMARY KEY AUTOINCREMENT,
+          "Theme" TEXT NOT NULL,
+          "DatePublication" TEXT NOT NULL,
+          "Link" TEXT NOT NULL,
+          "UserEntityPseudo" TEXT NOT NULL,
+          CONSTRAINT "FK_FormSet_UserSet_UserEntityPseudo" FOREIGN KEY ("UserEntityPseudo") REFERENCES "UserSet" ("Pseudo") ON DELETE CASCADE
+      );
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (1, 'Tom Smith', '2022-02-06', 'The queen of England died today at the age of 95', 2, 'Breaking News Elisabeth 2 Died');
+      SELECT changes();
+      
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (2, 'Tom Smith', '2022-02-06', 'The new iPhone 15 is out and it''s the best phone ever', 3, 'The new iPhone 15');
+      SELECT changes();
+      
+      INSERT INTO "ArticleSet" ("Id", "Author", "DatePublished", "Description", "LectureTime", "Title")
+      VALUES (3, 'M&M''s Red', '2022-02-06', 'M&M''s new recipe is out and it''s the best chocolate ever', 1, 'M&M''s new recipe');
+      SELECT changes();
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('NoaSil', '', '1234', 'Sillard', 'Noa', 'Admin');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('RedM', 'M&M#mail.com', '1234', 'M&M''s', 'Red', 'Modérator');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('Sha', 'ShaCasca@gmail.com', '1234', 'Cascarra', 'Cascarra', 'Admin');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('TomS', 'tom@mail.com', '1234', 'Smith', 'Tom', 'User');
+      SELECT changes();
+      
+      INSERT INTO "UserSet" ("Pseudo", "Mail", "Mdp", "Nom", "Prenom", "Role")
+      VALUES ('TonyF', 'tony@gmail.com', '1234', 'Fages', 'Tony', 'Admin');
+      SELECT changes();
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (1, 'TonyF');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (2, 'NoaSil');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (2, 'TomS');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (3, 'RedM');
+      SELECT changes();
+      
+      INSERT INTO "ArticleUserSet" ("ArticleEntityId", "UserEntityPseudo")
+      VALUES (3, 'Sha');
+      SELECT changes();
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (1, 'Form 1 Description', 'hhtp://form1.com', 'Form 1 Theme', 'Sha');
+      SELECT changes();
+      
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (2, 'Form 2 Description', 'hhtp://form2.com', 'Form 2 Theme', 'Sha');
+      SELECT changes();
+      
+      INSERT INTO "FormSet" ("Id", "DatePublication", "Link", "Theme", "UserEntityPseudo")
+      VALUES (3, 'Form 3 Description', 'hhtp://form3.com', 'Form 3 Theme', 'Sha');
+      SELECT changes();
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_ArticleUserSet_UserEntityPseudo" ON "ArticleUserSet" ("UserEntityPseudo");
+info: 03/17/2024 10:51:04.828 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_FormSet_UserEntityPseudo" ON "FormSet" ("UserEntityPseudo");
+info: 03/17/2024 10:51:04.829 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20240317095050_mrg1', '8.0.3');

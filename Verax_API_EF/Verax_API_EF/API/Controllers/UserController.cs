@@ -125,7 +125,7 @@ namespace API.Controllers
             }
         }
    
-        [HttpGet("/articleUsers")]
+        [HttpGet("/user/article/users")]
     public async Task<IActionResult> GetAllArticleUsers()
     {
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetAllArticleUsers), "");
@@ -145,7 +145,7 @@ namespace API.Controllers
         }
     }
          
-    [HttpGet("/user/{pseudo}/article")]
+    [HttpGet("/user/{pseudo}/articles")]
     public async Task<IActionResult> GetArticleUser(string pseudo)
     {
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(GetArticleUser), pseudo);
@@ -206,18 +206,37 @@ namespace API.Controllers
         }
     }
     
-    [HttpPut("/user/{pseudo}/article")]
-    public async Task<IActionResult> UpdateArticleUser(ArticleUserEntity articleUser)
+    [HttpPut("/user/{pseudo}/{oldId}")]
+    public async Task<IActionResult> UpdateArticleUser(ArticleUserEntity articleUser, long oldId)
     {
         _logger.LogInformation("Executing {Action} - with parameters: {Parameters}",nameof(UpdateArticleUser), articleUser);
         try
         {
-            var result = (await _dataManager.UserService.UpdateArticleUser(articleUser));
-            if (!result)
+            // Retrieve the existing entity
+            var existingEntity = await _dataManager.UserService.GetArticleUser(articleUser.UserEntityPseudo);
+
+            if (existingEntity == null)
             {
-                return BadRequest($"ArticleUser {articleUser.UserEntityPseudo} does not exist");
+                return NotFound($"ArticleUser {articleUser.UserEntityPseudo} does not exist");
             }
-            return Ok(result);
+
+            // Delete the existing entity
+            var deleteResult = await _dataManager.UserService.DeleteArticleUser(articleUser.UserEntityPseudo, oldId);
+
+            if (!deleteResult)
+            {
+                return BadRequest($"Failed to delete ArticleUser {articleUser.UserEntityPseudo}");
+            }
+
+            // Create a new entity with the updated values
+            var createResult = await _dataManager.UserService.CreateArticleUser(articleUser);
+
+            if (createResult == null)
+            {
+                return BadRequest($"Failed to create ArticleUser {articleUser.UserEntityPseudo}");
+            }
+
+            return Ok(createResult);
         }
         catch (Exception error)
         {
@@ -225,7 +244,5 @@ namespace API.Controllers
             return BadRequest(error.Message);
         }
     }
-        
-        
     }
 }
