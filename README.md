@@ -24,7 +24,6 @@ Bienvenue sur le projet `Verax_API_EF`, une API RESTful développée spécifique
 ## Configuration requise
 
 - .NET 8.
-- Un système de gestion de base de données (par exemple, SQL Server) accessible depuis l'application.
 - Un IDE tel que Visual Studio, VS Code avec l'extension C#, ou JetBrains Rider pour le développement.
 
 ## Installation
@@ -39,8 +38,8 @@ Bienvenue sur le projet `Verax_API_EF`, une API RESTful développée spécifique
 Après avoir lancé l'API, elle sera accessible via `http://localhost:5000` par défaut. Voici quelques exemples de requêtes que vous pouvez effectuer :
 
 - **Obtenir des articles** : `GET /articles`
-- **Ajouter un utilisateurs** : `POST /user` 
-- **Mettre à jour un articles** : `PUT /article/{id}` 
+- **Ajouter un utilisateur** : `POST /user` 
+- **Mettre à jour un article** : `PUT /article/{id}` 
 - **Supprimer un formulaire** : `DELETE /formulaire/{id}`
 
 ## Problèmes pouvant être rencontrés
@@ -55,7 +54,7 @@ Après avoir lancé l'API, elle sera accessible via `http://localhost:5000` par 
 dotnet ef migrations add mrg1 --project DbContextLib --context LibraryContext
 ```
 
-PS: N'oubliez pas de supprimer l'ancienne base de données dans le projet API
+PS: N'oubliez pas de supprimer l'ancienne base de données dans le projet API et de recommenter les lignes dans le fichier `LibraryContext.cs`
 
 
 ### Tests Console API
