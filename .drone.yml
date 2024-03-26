@@ -57,7 +57,7 @@ steps:
       dockerfile: Verax_API_EF/Dockerfile
       context: Verax_API_EF
       registry: hub.codefirst.iut.uca.fr
-      repo: hub.codefirst.iut.uca.fr/louis.laborie/sae_2a_API_EF
+      repo: hub.codefirst.iut.uca.fr/louis.laborie/sae_2a_api_ef
       username:
         from_secret: SECRET_REGISTRY_USERNAME
       password:
@@ -69,7 +69,7 @@ steps:
   - name: deploy-container
     image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
     environment:
-      IMAGENAME: hub.codefirst.iut.uca.fr/louis.laborie/sae_2a_API_EF:latest
+      IMAGENAME: hub.codefirst.iut.uca.fr/louis.laborie/sae_2a_api_ef:latest
       CONTAINERNAME: verax-api
       COMMAND: create
       OVERWRITE: true
