@@ -8,4 +8,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /
 COPY --from=build-env /out .
 ENV DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
-ENTRYPOINT ["dotnet", "API.dll"]
+ENV ASPNETCORE_HTTP_PORTS=80
+ENTRYPOINT ["dotnet", "API.dll","--launch-profile Docker"]
