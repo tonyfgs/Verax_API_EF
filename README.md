@@ -57,6 +57,7 @@ dotnet ef migrations add mrg1 --project DbContextLib --context LibraryContext
 PS: N'oubliez pas de supprimer l'ancienne base de données dans le projet API et de recommenter les lignes dans le fichier `LibraryContext.cs`
 
 
+
 ### Tests Console API
  - Pour exécuter les tests console de l'API, assurez-vous au préalable que l'API est en cours d'exécution sur votre machine. Il est également crucial de vérifier que le port utilisé par l'application correspond à celui spécifié dans les configurations des tests. Cette vérification garantit que les tests peuvent interagir correctement avec l'API et fournir des résultats fiables.
 
