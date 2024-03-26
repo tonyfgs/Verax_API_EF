@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /
-COPY Verax_API_EF/ Verax/
+COPY . Verax/
 RUN cd Verax/
+RUN cd Verax_API_EF/
 RUN dotnet restore Verax_API_EF.sln
 RUN dotnet publish -c Release -o out --no-restore Verax_API_EF.sln
 
