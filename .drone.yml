@@ -1,6 +1,6 @@
-kind: pipeline
+yml
 type: docker
-name: CI
+name: default
  
 trigger:
   event:
