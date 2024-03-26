@@ -29,7 +29,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "docker": {
+    "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
       "applicationUrl": "https://codefirst.iut.uca.fr/containers/Verax-verax-api/:{ServicePort}/swagger",
