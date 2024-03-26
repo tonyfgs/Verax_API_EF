@@ -7,4 +7,5 @@ RUN dotnet publish -c Release -o out --no-restore /Verax/Verax_API_EF/Verax_API_
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /
 COPY --from=build-env /out .
+ENV DOTNET_HOSTBUILDER_RELOADCONFIGONCHANGE=false
 ENTRYPOINT ["dotnet", "API.dll"]
