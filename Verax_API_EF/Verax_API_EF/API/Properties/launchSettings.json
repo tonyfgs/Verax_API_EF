@@ -32,7 +32,8 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "applicationUrl": "https://codefirst.iut.uca.fr/containers/Verax-verax-api/:{ServicePort}/swagger",
+      "launchUrl": "swagger",
+      "applicationUrl": "https://codefirst.iut.uca.fr/containers/Verax-verax-api",
       "publishAllPorts": true,
       "useSSL": true
     },
