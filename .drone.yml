@@ -51,7 +51,7 @@ steps:
         - pull_request
     depends_on: [build,tests]
 
-    - name: docker-build-and-push
+  - name: docker-build-and-push
     image: plugins/docker
     settings:
       dockerfile: Verax_API_EF/Dockerfile
