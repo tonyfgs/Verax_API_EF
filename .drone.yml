@@ -11,7 +11,6 @@ steps:
     image: mcr.microsoft.com/dotnet/sdk:8.0
     commands:
       - cd Verax_API_EF
-      - cd Verax_API_EF
       - dotnet restore Verax_API_EF.sln
       - dotnet build Verax_API_EF.sln -c Release --no-restore
       - dotnet publish Verax_API_EF.sln -c Release --no-restore -o $CI_PROJECT_DIR/build/release
@@ -19,7 +18,6 @@ steps:
   - name: tests
     image: mcr.microsoft.com/dotnet/sdk:8.0
     commands:
-      - cd Verax_API_EF
       - cd Verax_API_EF
       - dotnet restore Verax_API_EF.sln
       - dotnet test Verax_API_EF.sln --no-restore
@@ -34,7 +32,6 @@ steps:
         from_secret: SECRET_SONAR_LOGIN # Secret de Drone
       project_key: Verax_API_EF
     commands:
-      - cd Verax_API_EF/
       - cd Verax_API_EF/
       - dotnet restore Verax_API_EF.sln
       - dotnet sonarscanner begin /k:$${project_key} /d:sonar.host.url=$${sonar_host} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Unit_Test_EF/**","API_Unit_Test/**","API_Tests_Console/**","Test_Console_EF/**","DbContextLib/Migrations/**","StubbedContextLib/**","API/Program.cs" /d:sonar.login=$${sonar_token} 
@@ -65,6 +62,7 @@ steps:
     when:
       branch:
         - master
+        - rebase
 
   - name: deploy-container
     image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
