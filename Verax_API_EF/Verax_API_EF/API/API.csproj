@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
         <StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,6 +31,12 @@
       <ProjectReference Include="..\API_Mapping\API_Mapping.csproj" />
       <ProjectReference Include="..\API_Services\API_Services.csproj" />
       <ProjectReference Include="..\StubbedContextLib\StubbedContextLib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
