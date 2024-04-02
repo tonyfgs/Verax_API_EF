@@ -54,7 +54,7 @@ steps:
   - name: docker-build-and-push
     image: plugins/docker
     settings:
-      dockerfile: Verax_API_EF/Dockerfile
+      dockerfile: Verax_API_EF/Verax_API_EF/Dockerfile
       context: Verax_API_EF
       registry: hub.codefirst.iut.uca.fr
       repo: hub.codefirst.iut.uca.fr/louis.laborie/sae_2a_api_ef
